@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CANIAFFORD123"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CANIAFFORD123');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free move out affordability calculator - Calculate if you can afford to move out and live independently. Includes rent, utilities, groceries, and all living expenses.">
+    <meta name="keywords" content="move out calculator, can I afford to move out, independent living calculator, rent affordability calculator, living expenses calculator">
+    <title>Move Out Affordability Calculator - Can I Afford to Move Out? | Can I Afford</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Move Out Affordability Calculator - Can I Afford to Move Out?">
+    <meta property="og:description" content="Free move out affordability calculator - Calculate if you can afford to move out and live independently.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caniafford.online/moveout/">
+    <meta property="og:image" content="https://caniafford.online/assets/images/moveout-calculator-preview.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Move Out Affordability Calculator - Can I Afford to Move Out?">
+    <meta name="twitter:description" content="Free move out affordability calculator - Calculate if you can afford to move out and live independently.">
+    <meta name="twitter:image" content="https://caniafford.online/assets/images/moveout-calculator-preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://caniafford.online/moveout/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Move Out Affordability Calculator",
+        "description": "Calculate if you can afford to move out and live independently by analyzing your income against all living expenses.",
+        "url": "https://caniafford.online/moveout/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Move out affordability calculation",
+            "30% rent rule application",
+            "Complete living expenses analysis",
+            "Emergency fund planning",
+            "Monthly budget breakdown",
+            "Independence readiness assessment"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .calculator-header h1 {
+            color: #1f2937;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .calculator-header p {
+            color: #6b7280;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .input-section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .input-section h3 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .results-section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .results-section h3 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .result-value {
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .result-value.highlight {
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+        
+        .result-value.success {
+            color: #10b981;
+        }
+        
+        .result-value.warning {
+            color: #f59e0b;
+        }
+        
+        .result-value.danger {
+            color: #ef4444;
+        }
+        
+        .expense-breakdown {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .expense-breakdown h3 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .info-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .info-section h2 {
+            color: #1f2937;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .info-section p {
+            color: #6b7280;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tip {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tip h4 {
+            color: #1f2937;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .tip p {
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .calculator-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <a href="/" class="logo">🏠 Can I Afford</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/house/">House Calculator</a></li>
+                    <li><a href="/car/">Car Calculator</a></li>
+                    <li><a href="/wedding/">Wedding Calculator</a></li>
+                    <li><a href="/moveout/">Move Out Calculator</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1>🏠 Move Out Affordability Calculator</h1>
+                <p>Calculate if you can afford to move out and live independently by analyzing your income against all living expenses.</p>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="input-section">
+                    <h3>Your Financial Information</h3>
+                    <div class="form-group">
+                        <label for="monthly-income">Monthly Take-Home Income ($)</label>
+                        <input type="number" id="monthly-income" placeholder="3500" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="rent-cost">Monthly Rent ($)</label>
+                        <input type="number" id="rent-cost" placeholder="1200" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="utilities">Monthly Utilities ($)</label>
+                        <input type="number" id="utilities" placeholder="150" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="groceries">Monthly Groceries ($)</label>
+                        <input type="number" id="groceries" placeholder="400" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="transportation">Monthly Transportation ($)</label>
+                        <input type="number" id="transportation" placeholder="300" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="other-expenses">Other Monthly Expenses ($)</label>
+                        <input type="number" id="other-expenses" placeholder="500" min="0">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateAffordability()">Calculate Move Out Affordability</button>
+                </div>
+
+                <div class="results-section">
+                    <h3>Affordability Analysis</h3>
+                    <div id="results">
+                        <div class="result-item">
+                            <span class="result-label">Can You Afford It?</span>
+                            <span class="result-value highlight" id="affordability-status">Calculate to see</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Monthly Expenses:</span>
+                            <span class="result-value" id="total-expenses">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Monthly Leftover:</span>
+                            <span class="result-value" id="monthly-leftover">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Rent-to-Income Ratio:</span>
+                            <span class="result-value" id="rent-ratio">0%</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Emergency Fund Needed:</span>
+                            <span class="result-value" id="emergency-fund">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expense-breakdown">
+                <h3>Monthly Expense Breakdown</h3>
+                <div id="breakdown">
+                    <div class="result-item">
+                        <span class="result-label">Rent:</span>
+                        <span class="result-value" id="breakdown-rent">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Utilities:</span>
+                        <span class="result-value" id="breakdown-utilities">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Groceries:</span>
+                        <span class="result-value" id="breakdown-groceries">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Transportation:</span>
+                        <span class="result-value" id="breakdown-transportation">$0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Other Expenses:</span>
+                        <span class="result-value" id="breakdown-other">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>How the Move Out Affordability Calculator Works</h2>
+            <p>Our move out affordability calculator uses the 30% rule, which recommends that your rent should not exceed 30% of your take-home income. It also analyzes all your living expenses to determine if you can afford to live independently.</p>
+            
+            <p>The calculator considers your monthly income, rent, utilities, groceries, transportation, and other expenses to provide you with a comprehensive analysis of your financial readiness to move out.</p>
+
+            <div class="tips-grid">
+                <div class="tip">
+                    <h4>💡 The 30% Rule</h4>
+                    <p>Your rent should not exceed 30% of your take-home income to ensure you have enough money for other essential expenses.</p>
+                </div>
+                <div class="tip">
+                    <h4>💰 Emergency Fund</h4>
+                    <p>Before moving out, save at least 3-6 months of expenses as an emergency fund to handle unexpected costs.</p>
+                </div>
+                <div class="tip">
+                    <h4>📊 Total Living Costs</h4>
+                    <p>Consider all expenses: rent, utilities, groceries, transportation, insurance, entertainment, and savings.</p>
+                </div>
+                <div class="tip">
+                    <h4>📈 Income Stability</h4>
+                    <p>Ensure you have stable income for at least 6 months before committing to independent living arrangements.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Can I Afford. All rights reserved.</p>
+            <p>Free financial calculators to help you make smart money decisions.</p>
+            <p><a href="mailto:kelonwaithera@gmail.com">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateAffordability() {
+            const monthlyIncome = parseFloat(document.getElementById('monthly-income').value) || 0;
+            const rentCost = parseFloat(document.getElementById('rent-cost').value) || 0;
+            const utilities = parseFloat(document.getElementById('utilities').value) || 0;
+            const groceries = parseFloat(document.getElementById('groceries').value) || 0;
+            const transportation = parseFloat(document.getElementById('transportation').value) || 0;
+            const otherExpenses = parseFloat(document.getElementById('other-expenses').value) || 0;
+
+            if (monthlyIncome <= 0) {
+                alert('Please enter a valid monthly income.');
+                return;
+            }
+
+            const totalExpenses = rentCost + utilities + groceries + transportation + otherExpenses;
+            const monthlyLeftover = monthlyIncome - totalExpenses;
+            const rentRatio = (rentCost / monthlyIncome) * 100;
+            const emergencyFund = totalExpenses * 3; // 3 months of expenses
+
+            // Determine affordability
+            let affordabilityStatus = '';
+            let statusClass = '';
+            
+            if (rentRatio > 30) {
+                affordabilityStatus = 'Not Recommended';
+                statusClass = 'danger';
+            } else if (monthlyLeftover < 200) {
+                affordabilityStatus = 'Tight Budget';
+                statusClass = 'warning';
+            } else if (monthlyLeftover >= 500) {
+                affordabilityStatus = 'Yes, You Can Afford It!';
+                statusClass = 'success';
+            } else {
+                affordabilityStatus = 'Manageable';
+                statusClass = 'warning';
+            }
+
+            // Update results
+            const statusElement = document.getElementById('affordability-status');
+            statusElement.textContent = affordabilityStatus;
+            statusElement.className = 'result-value highlight ' + statusClass;
+            
+            document.getElementById('total-expenses').textContent = '$' + totalExpenses.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('monthly-leftover').textContent = '$' + monthlyLeftover.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('rent-ratio').textContent = rentRatio.toFixed(1) + '%';
+            document.getElementById('emergency-fund').textContent = '$' + emergencyFund.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            // Update breakdown
+            document.getElementById('breakdown-rent').textContent = '$' + rentCost.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('breakdown-utilities').textContent = '$' + utilities.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('breakdown-groceries').textContent = '$' + groceries.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('breakdown-transportation').textContent = '$' + transportation.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('breakdown-other').textContent = '$' + otherExpenses.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            // Track calculation event
+            gtag('event', 'calculate_moveout_affordability', {
+                'event_category': 'Calculator',
+                'event_label': 'Move Out Affordability',
+                'value': Math.round(totalExpenses)
+            });
+        }
+
+        // Auto-calculate on input change
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (document.getElementById('monthly-income').value) {
+                        calculateAffordability();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

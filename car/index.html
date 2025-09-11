@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CANIAFFORD123"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CANIAFFORD123');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free car affordability calculator - Calculate how much car you can afford based on your income using the 20/4/10 rule. Get instant results for car loans and monthly payments.">
+    <meta name="keywords" content="car affordability calculator, how much car can I afford, auto loan calculator, car payment calculator, 20/4/10 rule, car financing calculator">
+    <title>Car Affordability Calculator - How Much Car Can I Afford? | Can I Afford</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Car Affordability Calculator - How Much Car Can I Afford?">
+    <meta property="og:description" content="Free car affordability calculator - Calculate how much car you can afford based on your income using the 20/4/10 rule.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caniafford.online/car/">
+    <meta property="og:image" content="https://caniafford.online/assets/images/car-calculator-preview.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Car Affordability Calculator - How Much Car Can I Afford?">
+    <meta name="twitter:description" content="Free car affordability calculator - Calculate how much car you can afford based on your income using the 20/4/10 rule.">
+    <meta name="twitter:image" content="https://caniafford.online/assets/images/car-calculator-preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://caniafford.online/car/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Car Affordability Calculator",
+        "description": "Calculate how much car you can afford based on your income using the 20/4/10 rule for responsible car financing.",
+        "url": "https://caniafford.online/car/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Car affordability calculation",
+            "20/4/10 rule application",
+            "Auto loan payment calculation",
+            "Down payment scenarios",
+            "Total cost of ownership",
+            "Reverse calculations"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .calculator-header h1 {
+            color: #1f2937;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .calculator-header p {
+            color: #6b7280;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .input-section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .input-section h3 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .results-section {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .results-section h3 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .result-value {
+            color: #1f2937;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .result-value.highlight {
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+        
+        .info-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .info-section h2 {
+            color: #1f2937;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .info-section p {
+            color: #6b7280;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .tip {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tip h4 {
+            color: #1f2937;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .tip p {
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .calculator-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <a href="/" class="logo">🚗 Can I Afford</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/house/">House Calculator</a></li>
+                    <li><a href="/car/">Car Calculator</a></li>
+                    <li><a href="/wedding/">Wedding Calculator</a></li>
+                    <li><a href="/moveout/">Move Out Calculator</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h1>🚗 Car Affordability Calculator</h1>
+                <p>Calculate how much car you can afford based on your income using the proven 20/4/10 rule for smart car financing.</p>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="input-section">
+                    <h3>Your Financial Information</h3>
+                    <div class="form-group">
+                        <label for="annual-income">Annual Gross Income ($)</label>
+                        <input type="number" id="annual-income" placeholder="60000" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="down-payment">Down Payment ($)</label>
+                        <input type="number" id="down-payment" placeholder="5000" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest-rate">Interest Rate (%)</label>
+                        <input type="number" id="interest-rate" placeholder="7.5" min="0" max="30" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="loan-term">Loan Term (years)</label>
+                        <input type="number" id="loan-term" placeholder="4" min="1" max="8">
+                    </div>
+                    <div class="form-group">
+                        <label for="insurance-cost">Monthly Insurance ($)</label>
+                        <input type="number" id="insurance-cost" placeholder="150" min="0">
+                    </div>
+                    <button class="calculate-btn" onclick="calculateAffordability()">Calculate Car Affordability</button>
+                </div>
+
+                <div class="results-section">
+                    <h3>Your Results</h3>
+                    <div id="results">
+                        <div class="result-item">
+                            <span class="result-label">Maximum Car Price:</span>
+                            <span class="result-value highlight" id="max-car-price">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Maximum Monthly Payment:</span>
+                            <span class="result-value" id="max-monthly-payment">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Loan Amount:</span>
+                            <span class="result-value" id="loan-amount">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Total Monthly Cost:</span>
+                            <span class="result-value" id="total-monthly-cost">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Income Percentage:</span>
+                            <span class="result-value" id="income-percentage">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>How the Car Affordability Calculator Works</h2>
+            <p>Our car affordability calculator uses the industry-standard 20/4/10 rule to determine how much car you can afford. This rule recommends putting down at least 20% as a down payment, financing for no more than 4 years, and keeping your total monthly vehicle expenses under 10% of your gross monthly income.</p>
+            
+            <p>The calculator considers your annual income, down payment, interest rate, loan term, and insurance costs to provide you with a realistic estimate of your car buying budget.</p>
+
+            <div class="tips-grid">
+                <div class="tip">
+                    <h4>💡 The 20% Down Payment</h4>
+                    <p>Putting down at least 20% helps you avoid being underwater on your loan and reduces your monthly payments significantly.</p>
+                </div>
+                <div class="tip">
+                    <h4>📅 4-Year Maximum Term</h4>
+                    <p>Limiting your loan to 4 years or less helps you avoid paying excessive interest and ensures you're not stuck with an old car payment.</p>
+                </div>
+                <div class="tip">
+                    <h4>📊 10% Income Rule</h4>
+                    <p>Your total monthly vehicle expenses (payment, insurance, gas, maintenance) should not exceed 10% of your gross monthly income.</p>
+                </div>
+                <div class="tip">
+                    <h4>💰 Total Cost Consideration</h4>
+                    <p>Remember to factor in insurance, gas, maintenance, and registration costs when determining your true car affordability.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Can I Afford. All rights reserved.</p>
+            <p>Free financial calculators to help you make smart money decisions.</p>
+            <p><a href="mailto:kelonwaithera@gmail.com">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function calculateAffordability() {
+            const annualIncome = parseFloat(document.getElementById('annual-income').value) || 0;
+            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 7.5;
+            const loanTerm = parseFloat(document.getElementById('loan-term').value) || 4;
+            const insuranceCost = parseFloat(document.getElementById('insurance-cost').value) || 0;
+
+            if (annualIncome <= 0) {
+                alert('Please enter a valid annual income.');
+                return;
+            }
+
+            const monthlyIncome = annualIncome / 12;
+            const maxTotalVehicleCost = monthlyIncome * 0.10; // 10% rule
+            const maxMonthlyPayment = maxTotalVehicleCost - insuranceCost;
+
+            if (maxMonthlyPayment <= 0) {
+                alert('Your insurance cost is too high relative to your income. Consider reducing insurance costs.');
+                return;
+            }
+
+            // Calculate maximum loan amount using loan payment formula
+            const monthlyRate = interestRate / 100 / 12;
+            const numPayments = loanTerm * 12;
+            let maxLoanAmount;
+            
+            if (monthlyRate === 0) {
+                maxLoanAmount = maxMonthlyPayment * numPayments;
+            } else {
+                maxLoanAmount = maxMonthlyPayment * ((1 - Math.pow(1 + monthlyRate, -numPayments)) / monthlyRate);
+            }
+            
+            const maxCarPrice = maxLoanAmount + downPayment;
+            const totalMonthlyCost = maxMonthlyPayment + insuranceCost;
+            const incomePercentage = (totalMonthlyCost / monthlyIncome) * 100;
+
+            // Update results
+            document.getElementById('max-car-price').textContent = '$' + maxCarPrice.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('max-monthly-payment').textContent = '$' + maxMonthlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('loan-amount').textContent = '$' + maxLoanAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('total-monthly-cost').textContent = '$' + totalMonthlyCost.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('income-percentage').textContent = incomePercentage.toFixed(1) + '%';
+
+            // Track calculation event
+            gtag('event', 'calculate_car_affordability', {
+                'event_category': 'Calculator',
+                'event_label': 'Car Affordability',
+                'value': Math.round(maxCarPrice)
+            });
+        }
+
+        // Auto-calculate on input change
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    if (document.getElementById('annual-income').value) {
+                        calculateAffordability();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
