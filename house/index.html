@@ -2,32 +2,32 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CANIAFFORD123"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TC7C08ZXEK"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CANIAFFORD123');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TC7C08ZXEK');
     </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free house affordability calculator - Calculate how much house you can afford based on your income, debt, and down payment. Get instant results with the 28% rule and debt-to-income ratios.">
-    <meta name="keywords" content="house affordability calculator, how much house can I afford, mortgage calculator, home buying calculator, 28% rule, debt to income ratio, house payment calculator">
-    <title>House Affordability Calculator - How Much House Can I Afford? | Can I Afford</title>
+    <meta name="description" content="Can I afford this house? Get an instant, free answer using proven affordability rules. Calculate mortgage payments, taxes, and total ownership costs. No email required.">
+    <meta name="keywords" content="house affordability calculator, mortgage calculator, home affordability, can I afford this house, home buying calculator, 28% rule">
+    <title>Can I Afford This House? - Free Calculator | No Email Required</title>
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="House Affordability Calculator - How Much House Can I Afford?">
-    <meta property="og:description" content="Free house affordability calculator - Calculate how much house you can afford based on your income, debt, and down payment.">
+    <meta property="og:title" content="Can I Afford This House? - Free Calculator">
+    <meta property="og:description" content="Find out if you can afford that house instantly. Free calculator with no email required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://caniafford.online/house/">
-    <meta property="og:image" content="https://caniafford.online/assets/images/house-calculator-preview.png">
+    <meta property="og:image" content="https://caniafford.online/house/house-calculator-preview.jpg">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="House Affordability Calculator - How Much House Can I Afford?">
-    <meta name="twitter:description" content="Free house affordability calculator - Calculate how much house you can afford based on your income, debt, and down payment.">
-    <meta name="twitter:image" content="https://caniafford.online/assets/images/house-calculator-preview.png">
+    <meta name="twitter:title" content="Can I Afford This House? - Free Calculator">
+    <meta name="twitter:description" content="Find out if you can afford that house instantly. Free calculator with no email required.">
+    <meta name="twitter:image" content="https://caniafford.online/house/house-calculator-preview.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
@@ -40,8 +40,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "House Affordability Calculator",
-        "description": "Calculate how much house you can afford based on your income, debt, and down payment using the 28% rule and debt-to-income ratios.",
+        "name": "Can I Afford This House? Calculator",
+        "description": "Free house affordability calculator. Find out if you can afford that house instantly - no email required.",
         "url": "https://caniafford.online/house/",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -52,12 +52,18 @@
         },
         "featureList": [
             "House affordability calculation",
-            "28% rule application",
-            "Debt-to-income ratio analysis",
-            "Down payment scenarios",
-            "Monthly payment breakdown",
-            "Reverse calculations"
-        ]
+            "Mortgage payment estimation",
+            "Total cost of ownership analysis",
+            "Property tax estimation",
+            "Credit score based interest rates",
+            "Reverse calculator mode",
+            "No email required",
+            "Mobile friendly"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "Can I Afford This"
+        }
     }
     </script>
     
@@ -77,449 +83,789 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
         
-        .header {
-            background: rgba(255, 255, 255, 0.95);
+        .header-nav {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .nav {
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #667eea;
-            text-decoration: none;
         }
         
         .nav-links {
             display: flex;
-            gap: 25px;
-            list-style: none;
+            gap: 20px;
+            align-items: center;
         }
         
         .nav-links a {
-            color: #333;
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .nav-links a:hover {
-            color: #667eea;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
         }
         
-        .calculator-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        .calculator-header {
+        .hero {
             text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             margin-bottom: 40px;
         }
         
-        .calculator-header h1 {
-            color: #1f2937;
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            font-weight: 700;
+        .calculator-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 12px;
         }
         
-        .calculator-header p {
-            color: #6b7280;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
+        .tab-button {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #64748b;
         }
         
-        .calculator-grid {
+        .tab-button.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .input-section {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .input-section h3 {
-            color: #1f2937;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            font-weight: 600;
+            gap: 20px;
+            margin-bottom: 24px;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
         
         .form-group label {
             display: block;
-            color: #374151;
             font-weight: 600;
             margin-bottom: 8px;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
+            color: #374151;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
         }
         
-        .form-group input:focus {
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
             outline: none;
             border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .optional {
+            font-weight: 400;
+            color: #6b7280;
+            font-size: 0.9rem;
         }
         
         .calculate-btn {
+            width: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 16px 32px;
+            padding: 18px 24px;
             border-radius: 12px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            width: 100%;
-            margin-bottom: 20px;
+            margin-top: 16px;
         }
         
         .calculate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
         
-        .results-section {
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .calculate-btn:active {
+            transform: translateY(0);
         }
         
-        .results-section h3 {
-            color: #1f2937;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+        .result {
+            margin-top: 32px;
+            padding: 24px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result.success {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            color: #065f46;
+        }
+        
+        .result.warning {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            color: #92400e;
+        }
+        
+        .result.danger {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            color: #991b1b;
+        }
+        
+        .result-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .payment-breakdown {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        
+        .payment-breakdown h4 {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .payment-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+        
+        .payment-item.total {
+            border-top: 2px solid #e5e7eb;
+            padding-top: 12px;
+            margin-top: 12px;
             font-weight: 600;
         }
         
-        .result-item {
+        .affordability-meter {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .meter-label {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .meter-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .meter-fill.good {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        
+        .meter-fill.warning {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+        
+        .meter-fill.danger {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+        
+        .meter-percentage {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .share-buttons {
             display: flex;
-            justify-content: space-between;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #f3f4f6;
+            gap: 8px;
         }
         
-        .result-item:last-child {
-            border-bottom: none;
+        .share-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
         }
         
-        .result-label {
-            color: #6b7280;
-            font-weight: 500;
+        .share-btn.twitter {
+            background: #1da1f2;
         }
         
-        .result-value {
-            color: #1f2937;
-            font-weight: 700;
-            font-size: 1.1rem;
+        .share-btn.twitter:hover {
+            background: #0d8bd9;
         }
         
-        .result-value.highlight {
-            color: #667eea;
-            font-size: 1.3rem;
+        .share-btn.facebook {
+            background: #4267b2;
+        }
+        
+        .share-btn.facebook:hover {
+            background: #365899;
         }
         
         .info-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: white;
+            border-radius: 16px;
             padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             margin-bottom: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
         
         .info-section h2 {
             color: #1f2937;
-            font-size: 2rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-size: 1.8rem;
         }
         
         .info-section p {
-            color: #6b7280;
-            font-size: 1.1rem;
-            line-height: 1.7;
             margin-bottom: 16px;
-        }
-        
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .tip {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        
-        .tip h4 {
-            color: #1f2937;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-        
-        .tip p {
             color: #6b7280;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
-        .footer {
-            background: rgba(0, 0, 0, 0.1);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-        
-        .footer p {
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-        
-        .footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
+            line-height: 1.7;
         }
         
         @media (max-width: 768px) {
-            .calculator-grid {
+            .form-row {
                 grid-template-columns: 1fr;
             }
             
-            .nav {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .calculator-header h1 {
+            .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .calculator-card {
+                padding: 24px;
+            }
+            
+            .share-buttons {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <nav class="nav">
-                <a href="/" class="logo">🏠 Can I Afford</a>
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/house/">House Calculator</a></li>
-                    <li><a href="/car/">Car Calculator</a></li>
-                    <li><a href="/wedding/">Wedding Calculator</a></li>
-                    <li><a href="/moveout/">Move Out Calculator</a></li>
-                    <li><a href="/blog/">Blog</a></li>
-                </ul>
-            </nav>
-        </header>
+        <nav class="header-nav">
+            <div class="nav-links">
+                <a href="../">🏠 Home</a>
+                <a href="../car/">🚗 Car Calculator</a>
+                <a href="../wedding/">💍 Wedding Calculator</a>
+                <a href="../moveout/">📦 Move Out Calculator</a>
+                <a href="../blog/">📝 Blog</a>
+            </div>
+        </nav>
 
-        <div class="calculator-container">
-            <div class="calculator-header">
-                <h1>🏠 House Affordability Calculator</h1>
-                <p>Calculate how much house you can afford based on your income, debt, and down payment using proven financial rules.</p>
+        <div class="hero">
+            <h1>Can I Afford This House? 🏠</h1>
+            <p>Free house affordability calculator for first-time home buyers</p>
+            <p class="subtitle">Get an instant answer to your biggest question • No email required • 100% free</p>
+        </div>
+
+        <div class="calculator-card">
+            <div class="calculator-tabs">
+                <button class="tab-button active" onclick="switchTab('affordability')">Affordability Calculator (Can I afford this house?)</button>
+                <button class="tab-button" onclick="switchTab('reverse')">Reverse Calculator (What house can I afford?)</button>
             </div>
 
-            <div class="calculator-grid">
-                <div class="input-section">
-                    <h3>Your Financial Information</h3>
+            <div id="affordability-tab" class="tab-content active">
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="annual-income">Annual Gross Income ($)</label>
-                        <input type="number" id="annual-income" placeholder="75000" min="0">
+                        <label for="currency">Currency:</label>
+                        <select id="currency">
+                            <option value="USD">🇺🇸 USD - US Dollar</option>
+                            <option value="EUR">🇪🇺 EUR - Euro</option>
+                            <option value="GBP">🇬🇧 GBP - British Pound</option>
+                            <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                            <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="monthly-debt">Monthly Debt Payments ($)</label>
-                        <input type="number" id="monthly-debt" placeholder="500" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="down-payment">Down Payment ($)</label>
-                        <input type="number" id="down-payment" placeholder="50000" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest-rate">Interest Rate (%)</label>
-                        <input type="number" id="interest-rate" placeholder="6.5" min="0" max="20" step="0.1">
-                    </div>
-                    <div class="form-group">
-                        <label for="loan-term">Loan Term (years)</label>
-                        <input type="number" id="loan-term" placeholder="30" min="1" max="50">
-                    </div>
-                    <button class="calculate-btn" onclick="calculateAffordability()">Calculate House Affordability</button>
                 </div>
-
-                <div class="results-section">
-                    <h3>Your Results</h3>
-                    <div id="results">
-                        <div class="result-item">
-                            <span class="result-label">Maximum House Price:</span>
-                            <span class="result-value highlight" id="max-house-price">$0</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Maximum Monthly Payment:</span>
-                            <span class="result-value" id="max-monthly-payment">$0</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Loan Amount:</span>
-                            <span class="result-value" id="loan-amount">$0</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Debt-to-Income Ratio:</span>
-                            <span class="result-value" id="debt-ratio">0%</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Housing Ratio:</span>
-                            <span class="result-value" id="housing-ratio">0%</span>
-                        </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="housePrice">House Price ($)</label>
+                        <input type="number" id="housePrice" placeholder="e.g. 350,000">
+                    </div>
+                    <div class="form-group">
+                        <label for="annualIncome">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="e.g. 70,000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="downPayment">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="e.g. 50,000">
+                    </div>
+                    <div class="form-group">
+                        <label for="creditScore">Credit Score (600-850)</label>
+                        <input type="number" id="creditScore" placeholder="e.g. 720" min="600" max="850">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="loanTerm">Loan Term (Years):</label>
+                        <select id="loanTerm">
+                            <option value="30">30-Year</option>
+                            <option value="25">25-Year</option>
+                            <option value="20">20-Year</option>
+                            <option value="15">15-Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="propertyTax">Annual Property Tax <span class="optional">(optional)</span></label>
+                        <input type="number" id="propertyTax" placeholder="e.g. 4,320">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="hoaFees">Monthly HOA Fees <span class="optional">(optional)</span></label>
+                        <input type="number" id="hoaFees" placeholder="e.g. 150">
+                    </div>
+                    <div class="form-group">
+                        <label for="interestRate">Interest Rate (%) <span class="optional">(optional)</span></label>
+                        <input type="number" id="interestRate" placeholder="e.g. 7.25" step="0.01">
                     </div>
                 </div>
             </div>
+
+            <div id="reverse-tab" class="tab-content">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reverseCurrency">Currency:</label>
+                        <select id="reverseCurrency">
+                            <option value="USD">🇺🇸 USD - US Dollar</option>
+                            <option value="EUR">🇪🇺 EUR - Euro</option>
+                            <option value="GBP">🇬🇧 GBP - British Pound</option>
+                            <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                            <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reverseAnnualIncome">Annual Income ($)</label>
+                        <input type="number" id="reverseAnnualIncome" placeholder="e.g. 70,000">
+                    </div>
+                    <div class="form-group">
+                        <label for="reverseDownPayment">Down Payment ($)</label>
+                        <input type="number" id="reverseDownPayment" placeholder="e.g. 50,000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reverseCreditScore">Credit Score (600-850)</label>
+                        <input type="number" id="reverseCreditScore" placeholder="e.g. 720" min="600" max="850">
+                    </div>
+                    <div class="form-group">
+                        <label for="reverseLoanTerm">Loan Term (Years):</label>
+                        <select id="reverseLoanTerm">
+                            <option value="30">30-Year</option>
+                            <option value="25">25-Year</option>
+                            <option value="20">20-Year</option>
+                            <option value="15">15-Year</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reversePropertyTaxRate">Property Tax Rate (%) <span class="optional">(optional - default 1.2%)</span></label>
+                        <input type="number" id="reversePropertyTaxRate" placeholder="e.g. 1.25" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="reverseInsuranceRate">Insurance Rate (%) <span class="optional">(optional - default 0.3%)</span></label>
+                        <input type="number" id="reverseInsuranceRate" placeholder="e.g. 0.35" step="0.01">
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateAffordability()">Calculate Affordability</button>
+
+            <div id="result" class="result"></div>
         </div>
 
         <div class="info-section">
-            <h2>How the House Affordability Calculator Works</h2>
-            <p>Our house affordability calculator uses the industry-standard 28/36 rule to determine how much house you can afford. This rule states that your housing expenses should not exceed 28% of your gross monthly income, and your total debt payments should not exceed 36% of your gross monthly income.</p>
-            
-            <p>The calculator considers your annual income, existing monthly debt payments, down payment amount, interest rate, and loan term to provide you with a realistic estimate of your home buying budget.</p>
-
-            <div class="tips-grid">
-                <div class="tip">
-                    <h4>💡 The 28% Rule</h4>
-                    <p>Your monthly housing payment (including principal, interest, taxes, and insurance) should not exceed 28% of your gross monthly income.</p>
-                </div>
-                <div class="tip">
-                    <h4>📊 Debt-to-Income Ratio</h4>
-                    <p>Your total monthly debt payments (including the new mortgage) should not exceed 36% of your gross monthly income.</p>
-                </div>
-                <div class="tip">
-                    <h4>💰 Down Payment Impact</h4>
-                    <p>A larger down payment reduces your loan amount and monthly payments, allowing you to afford a more expensive home.</p>
-                </div>
-                <div class="tip">
-                    <h4>📈 Interest Rate Effect</h4>
-                    <p>Lower interest rates mean lower monthly payments, which increases your buying power and the maximum house price you can afford.</p>
-                </div>
-            </div>
+            <h2>How Does This Calculator Work?</h2>
+            <p>Our calculator uses the <strong>28% rule</strong> - a widely accepted guideline that suggests your monthly housing payment should not exceed 28% of your gross monthly income.</p>
+            <p>We calculate your estimated monthly mortgage payment based on current interest rates (which vary by credit score), add estimated property taxes and insurance, then compare this to 28% of your monthly income.</p>
+            <p>This gives you a realistic picture of whether you can comfortably afford the house you're considering, helping you make informed decisions about one of life's biggest purchases.</p>
         </div>
-
-        <footer class="footer">
-            <p>&copy; 2024 Can I Afford. All rights reserved.</p>
-            <p>Free financial calculators to help you make smart money decisions.</p>
-            <p><a href="mailto:kelonwaithera@gmail.com">Contact Us</a></p>
-        </footer>
     </div>
 
     <script>
-        function calculateAffordability() {
-            const annualIncome = parseFloat(document.getElementById('annual-income').value) || 0;
-            const monthlyDebt = parseFloat(document.getElementById('monthly-debt').value) || 0;
-            const downPayment = parseFloat(document.getElementById('down-payment').value) || 0;
-            const interestRate = parseFloat(document.getElementById('interest-rate').value) || 6.5;
-            const loanTerm = parseFloat(document.getElementById('loan-term').value) || 30;
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+            
+            // Clear previous results
+            document.getElementById('result').style.display = 'none';
+        }
 
-            if (annualIncome <= 0) {
-                alert('Please enter a valid annual income.');
+        function getInterestRate(creditScore) {
+            if (creditScore >= 740) return 6.5;
+            if (creditScore >= 680) return 7.0;
+            if (creditScore >= 620) return 7.5;
+            if (creditScore >= 580) return 8.0;
+            return 8.5;
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+
+        function calculateAffordability() {
+            const activeTab = document.querySelector('.tab-content.active').id;
+            
+            if (activeTab === 'affordability-tab') {
+                calculateCanAfford();
+            } else {
+                calculateWhatCanAfford();
+            }
+        }
+
+        function calculateCanAfford() {
+            const housePrice = parseFloat(document.getElementById('housePrice').value);
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const creditScore = parseFloat(document.getElementById('creditScore').value);
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+            const propertyTax = parseFloat(document.getElementById('propertyTax').value) || (housePrice * 0.012);
+            const hoaFees = parseFloat(document.getElementById('hoaFees').value) || 0;
+            const customInterestRate = parseFloat(document.getElementById('interestRate').value);
+
+            if (!housePrice || !annualIncome || !downPayment || !creditScore) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const loanAmount = housePrice - downPayment;
+            const interestRate = customInterestRate || getInterestRate(creditScore);
+            const monthlyRate = interestRate / 100 / 12;
+            const numPayments = loanTerm * 12;
+            
+            // Calculate monthly mortgage payment
+            const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+            const monthlyPropertyTax = propertyTax / 12;
+            const monthlyInsurance = housePrice * 0.003 / 12; // 0.3% annually
+            const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + hoaFees;
+            
+            const monthlyIncome = annualIncome / 12;
+            const affordablePayment = monthlyIncome * 0.28; // 28% rule
+            const paymentRatio = (totalMonthlyPayment / monthlyIncome) * 100;
+            
+            let resultClass, resultIcon, resultTitle, resultMessage;
+            
+            if (totalMonthlyPayment <= affordablePayment) {
+                resultClass = 'success';
+                resultIcon = '✅';
+                resultTitle = 'YES, you can afford this house!';
+                resultMessage = `Your monthly housing payment of ${formatCurrency(totalMonthlyPayment)} is ${paymentRatio.toFixed(1)}% of your income, which is within the recommended 28% guideline.`;
+            } else if (paymentRatio <= 35) {
+                resultClass = 'warning';
+                resultIcon = '⚠️';
+                resultTitle = 'MAYBE - This house is stretching your budget';
+                resultMessage = `Your monthly housing payment of ${formatCurrency(totalMonthlyPayment)} is ${paymentRatio.toFixed(1)}% of your income, which exceeds the 28% rule but might be manageable if you have low other debts.`;
+            } else {
+                resultClass = 'danger';
+                resultIcon = '❌';
+                resultTitle = 'NO, this house is too expensive';
+                resultMessage = `Your monthly housing payment of ${formatCurrency(totalMonthlyPayment)} is ${paymentRatio.toFixed(1)}% of your income, which significantly exceeds safe affordability guidelines.`;
+            }
+
+            const breakdown = `
+                <div class="payment-breakdown">
+                    <h4>Monthly Payment Breakdown:</h4>
+                    <div class="payment-item">
+                        <span>Principal & Interest:</span>
+                        <span>${formatCurrency(monthlyPayment)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Property Tax:</span>
+                        <span>${formatCurrency(monthlyPropertyTax)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Insurance:</span>
+                        <span>${formatCurrency(monthlyInsurance)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>HOA Fees:</span>
+                        <span>${formatCurrency(hoaFees)}</span>
+                    </div>
+                    <div class="payment-item total">
+                        <span>Total Monthly Payment:</span>
+                        <span>${formatCurrency(totalMonthlyPayment)}</span>
+                    </div>
+                </div>
+                
+                <div class="affordability-meter">
+                    <div class="meter-label">Affordability Meter</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill ${paymentRatio <= 28 ? 'good' : paymentRatio <= 35 ? 'warning' : 'danger'}" style="width: ${Math.min(paymentRatio, 100)}%">
+                            <span class="meter-percentage">${paymentRatio.toFixed(1)}%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('general')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just checked if I can afford a ${formatCurrency(housePrice)} house using this free calculator! ${resultTitle} Check yours: https://caniafford.online/house/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/house/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function calculateWhatCanAfford() {
+            const annualIncome = parseFloat(document.getElementById('reverseAnnualIncome').value);
+            const downPayment = parseFloat(document.getElementById('reverseDownPayment').value);
+            const creditScore = parseFloat(document.getElementById('reverseCreditScore').value);
+            const loanTerm = parseFloat(document.getElementById('reverseLoanTerm').value);
+            const propertyTaxRate = parseFloat(document.getElementById('reversePropertyTaxRate').value) || 1.2;
+            const insuranceRate = parseFloat(document.getElementById('reverseInsuranceRate').value) || 0.3;
+
+            if (!annualIncome || !downPayment || !creditScore) {
+                alert('Please fill in all required fields.');
                 return;
             }
 
             const monthlyIncome = annualIncome / 12;
-            const maxHousingPayment = monthlyIncome * 0.28;
-            const maxTotalDebt = monthlyIncome * 0.36;
-            const maxMortgagePayment = Math.min(maxHousingPayment, maxTotalDebt - monthlyDebt);
-
-            if (maxMortgagePayment <= 0) {
-                alert('Your current debt is too high. Consider reducing debt before buying a house.');
-                return;
-            }
-
-            // Calculate maximum loan amount using mortgage payment formula
+            const affordablePayment = monthlyIncome * 0.28; // 28% rule
+            const interestRate = getInterestRate(creditScore);
             const monthlyRate = interestRate / 100 / 12;
             const numPayments = loanTerm * 12;
-            const maxLoanAmount = maxMortgagePayment * ((1 - Math.pow(1 + monthlyRate, -numPayments)) / monthlyRate);
-            const maxHousePrice = maxLoanAmount + downPayment;
+            
+            // Calculate maximum house price through iteration
+            let maxHousePrice = 0;
+            let step = 1000;
+            
+            for (let housePrice = downPayment; housePrice <= 2000000; housePrice += step) {
+                const loanAmount = housePrice - downPayment;
+                const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+                const monthlyPropertyTax = (housePrice * propertyTaxRate / 100) / 12;
+                const monthlyInsurance = (housePrice * insuranceRate / 100) / 12;
+                const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance;
+                
+                if (totalMonthlyPayment <= affordablePayment) {
+                    maxHousePrice = housePrice;
+                } else {
+                    break;
+                }
+            }
 
-            // Calculate ratios
-            const debtRatio = ((monthlyDebt + maxMortgagePayment) / monthlyIncome) * 100;
-            const housingRatio = (maxMortgagePayment / monthlyIncome) * 100;
+            const loanAmount = maxHousePrice - downPayment;
+            const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+            const monthlyPropertyTax = (maxHousePrice * propertyTaxRate / 100) / 12;
+            const monthlyInsurance = (maxHousePrice * insuranceRate / 100) / 12;
+            const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance;
 
-            // Update results
-            document.getElementById('max-house-price').textContent = '$' + maxHousePrice.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('max-monthly-payment').textContent = '$' + maxMortgagePayment.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('loan-amount').textContent = '$' + maxLoanAmount.toLocaleString('en-US', {maximumFractionDigits: 0});
-            document.getElementById('debt-ratio').textContent = debtRatio.toFixed(1) + '%';
-            document.getElementById('housing-ratio').textContent = housingRatio.toFixed(1) + '%';
+            const resultClass = 'success';
+            const resultIcon = '🏠';
+            const resultTitle = `You can afford a house up to ${formatCurrency(maxHousePrice)}`;
+            const resultMessage = `Based on your income of ${formatCurrency(annualIncome)} and the 28% rule, your maximum affordable monthly payment is ${formatCurrency(affordablePayment)}.`;
 
-            // Track calculation event
-            gtag('event', 'calculate_house_affordability', {
-                'event_category': 'Calculator',
-                'event_label': 'House Affordability',
-                'value': Math.round(maxHousePrice)
-            });
+            const breakdown = `
+                <div class="payment-breakdown">
+                    <h4>Maximum Monthly Payment Breakdown:</h4>
+                    <div class="payment-item">
+                        <span>Principal & Interest:</span>
+                        <span>${formatCurrency(monthlyPayment)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Property Tax:</span>
+                        <span>${formatCurrency(monthlyPropertyTax)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Insurance:</span>
+                        <span>${formatCurrency(monthlyInsurance)}</span>
+                    </div>
+                    <div class="payment-item total">
+                        <span>Total Monthly Payment:</span>
+                        <span>${formatCurrency(totalMonthlyPayment)}</span>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('reverse')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I can afford a house up to ${formatCurrency(maxHousePrice)} based on my income! Find out what you can afford: https://caniafford.online/house/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/house/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
         }
 
-        // Auto-calculate on input change
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('input');
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    if (document.getElementById('annual-income').value) {
-                        calculateAffordability();
-                    }
+        function displayResult(resultClass, resultIcon, resultTitle, resultMessage) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = `result ${resultClass}`;
+            resultDiv.innerHTML = `
+                <span class="result-icon">${resultIcon}</span>
+                <div class="result-title">${resultTitle}</div>
+                <div class="result-message">${resultMessage}</div>
+            `;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function shareResult(type) {
+            const resultTitle = document.querySelector('.result-title').textContent;
+            const shareText = `${resultTitle}\n\nCalculated using the free house affordability calculator at https://caniafford.online/house/`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'House Affordability Result',
+                    text: shareText,
+                    url: 'https://caniafford.online/house/'
                 });
-            });
-        });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Result copied to clipboard!');
+                });
+            }
+        }
     </script>
 </body>
 </html>
