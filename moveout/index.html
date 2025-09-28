@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X606JS1X48"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X606JS1X48');
+</script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Can I afford to move out? Get an instant, free answer with our comprehensive move out affordability calculator. Calculate rent, utilities, and living costs - no email required.">
+    <meta name="keywords" content="move out calculator, apartment affordability, can I afford to move out, rent calculator, living expenses calculator, moving out budget">
+    <title>Can I Afford to Move Out? - Free Calculator | No Email Required</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Can I Afford to Move Out? - Free Calculator">
+    <meta property="og:description" content="Find out if you can afford to move out and live independently. Free comprehensive calculator with detailed cost breakdown.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caniafford.online/moveout/">
+    <meta property="og:image" content="https://caniafford.online/moveout/moveout-calculator-preview.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Can I Afford to Move Out? - Free Calculator">
+    <meta name="twitter:description" content="Calculate if you can afford to move out and live independently. Free detailed analysis.">
+    <meta name="twitter:image" content="https://caniafford.online/moveout/moveout-calculator-preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://caniafford.online/moveout/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Can I Afford to Move Out? Calculator",
+        "description": "Free move out affordability calculator with comprehensive cost breakdown. Find out if you can afford to live independently - no email required.",
+        "url": "https://caniafford.online/moveout/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Move out affordability calculation",
+            "Comprehensive living cost analysis",
+            "Rent affordability assessment",
+            "Emergency fund planning",
+            "Regional cost adjustments",
+            "30% rule analysis",
+            "No email required",
+            "Mobile friendly"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "Can I Afford This"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .calculator-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 12px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #64748b;
+        }
+        
+        .tab-button.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-section {
+            margin-bottom: 32px;
+        }
+        
+        .form-section h3 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 1rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .optional {
+            font-weight: 400;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .calculate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .result {
+            margin-top: 32px;
+            padding: 24px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result.success {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            color: #065f46;
+        }
+        
+        .result.warning {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            color: #92400e;
+        }
+        
+        .result.danger {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            color: #991b1b;
+        }
+        
+        .result-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        
+        .result-card {
+            background: rgba(255,255,255,0.7);
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .result-card h4 {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .result-card .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .cost-breakdown {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        
+        .cost-breakdown h4 {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+        
+        .cost-item.total {
+            border-top: 2px solid #e5e7eb;
+            padding-top: 12px;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        
+        .affordability-meter {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .meter-label {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .meter-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .meter-fill.good {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        
+        .meter-fill.warning {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+        
+        .meter-fill.danger {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+        
+        .meter-percentage {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .share-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.twitter:hover {
+            background: #0d8bd9;
+        }
+        
+        .share-btn.facebook {
+            background: #4267b2;
+        }
+        
+        .share-btn.facebook:hover {
+            background: #365899;
+        }
+        
+        .info-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .info-section h2 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .info-section p {
+            margin-bottom: 16px;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .calculator-card {
+                padding: 24px;
+            }
+            
+            .share-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="header-nav">
+            <div class="nav-links">
+                <a href="../">🏠 Home</a>
+                <a href="../house/">🏠 House Calculator</a>
+                <a href="../car/">🚗 Car Calculator</a>
+                <a href="../wedding/">💍 Wedding Calculator</a>
+                <a href="../blog/">📝 Blog</a>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <h1>Can I Afford to Move Out? 📦</h1>
+            <p>Free move out affordability calculator with comprehensive cost analysis</p>
+            <p class="subtitle">Get an instant answer to your independence question • No email required • 100% free</p>
+        </div>
+
+        <div class="calculator-card">
+            <div class="calculator-tabs">
+                <button class="tab-button active" onclick="switchTab('basic')">Basic Calculator</button>
+                <button class="tab-button" onclick="switchTab('detailed')">Detailed Analysis</button>
+                <button class="tab-button" onclick="switchTab('reverse')">What Rent Can I Afford?</button>
+            </div>
+
+            <div id="basic-tab" class="tab-content active">
+                <div class="form-section">
+                    <h3>💰 Income & Expenses</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="monthlyIncome">Monthly Income (After Tax) ($)</label>
+                            <input type="number" id="monthlyIncome" placeholder="e.g. 3,500">
+                        </div>
+                        <div class="form-group">
+                            <label for="currentExpenses">Current Monthly Expenses ($)</label>
+                            <input type="number" id="currentExpenses" placeholder="e.g. 800">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="currentSavings">Current Savings ($)</label>
+                            <input type="number" id="currentSavings" placeholder="e.g. 5,000">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencyFund">Desired Emergency Fund (Months)</label>
+                            <select id="emergencyFund">
+                                <option value="3">3 months</option>
+                                <option value="6" selected>6 months</option>
+                                <option value="9">9 months</option>
+                                <option value="12">12 months</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🏠 Housing Costs</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="monthlyRent">Monthly Rent ($)</label>
+                            <input type="number" id="monthlyRent" placeholder="e.g. 1,200">
+                        </div>
+                        <div class="form-group">
+                            <label for="utilities">Monthly Utilities ($)</label>
+                            <input type="number" id="utilities" placeholder="e.g. 150">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="securityDeposit">Security Deposit ($)</label>
+                            <input type="number" id="securityDeposit" placeholder="e.g. 1,200">
+                        </div>
+                        <div class="form-group">
+                            <label for="movingCosts">Moving Costs ($) <span class="optional">(optional)</span></label>
+                            <input type="number" id="movingCosts" placeholder="e.g. 500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="detailed-tab" class="tab-content">
+                <div class="form-section">
+                    <h3>💰 Income & Basic Expenses</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="detailedMonthlyIncome">Monthly Income (After Tax) ($)</label>
+                            <input type="number" id="detailedMonthlyIncome" placeholder="e.g. 3,500">
+                        </div>
+                        <div class="form-group">
+                            <label for="detailedCurrentSavings">Current Savings ($)</label>
+                            <input type="number" id="detailedCurrentSavings" placeholder="e.g. 5,000">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🏠 Housing Costs</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="detailedMonthlyRent">Monthly Rent ($)</label>
+                            <input type="number" id="detailedMonthlyRent" placeholder="e.g. 1,200">
+                        </div>
+                        <div class="form-group">
+                            <label for="detailedUtilities">Monthly Utilities ($)</label>
+                            <input type="number" id="detailedUtilities" placeholder="e.g. 150">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="detailedSecurityDeposit">Security Deposit ($)</label>
+                            <input type="number" id="detailedSecurityDeposit" placeholder="e.g. 1,200">
+                        </div>
+                        <div class="form-group">
+                            <label for="rentersInsurance">Renters Insurance (Monthly) ($)</label>
+                            <input type="number" id="rentersInsurance" placeholder="e.g. 25">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🍕 Living Expenses</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="groceries">Monthly Groceries ($)</label>
+                            <input type="number" id="groceries" placeholder="e.g. 300">
+                        </div>
+                        <div class="form-group">
+                            <label for="transportation">Monthly Transportation ($)</label>
+                            <input type="number" id="transportation" placeholder="e.g. 200">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phoneInternet">Phone & Internet ($)</label>
+                            <input type="number" id="phoneInternet" placeholder="e.g. 100">
+                        </div>
+                        <div class="form-group">
+                            <label for="entertainment">Entertainment & Dining ($)</label>
+                            <input type="number" id="entertainment" placeholder="e.g. 200">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="personalCare">Personal Care & Misc ($)</label>
+                            <input type="number" id="personalCare" placeholder="e.g. 100">
+                        </div>
+                        <div class="form-group">
+                            <label for="detailedMovingCosts">One-time Moving Costs ($)</label>
+                            <input type="number" id="detailedMovingCosts" placeholder="e.g. 1,000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reverse-tab" class="tab-content">
+                <div class="form-section">
+                    <h3>💰 Your Financial Situation</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reverseMonthlyIncome">Monthly Income (After Tax) ($)</label>
+                            <input type="number" id="reverseMonthlyIncome" placeholder="e.g. 3,500">
+                        </div>
+                        <div class="form-group">
+                            <label for="reverseCurrentExpenses">Current Monthly Expenses ($)</label>
+                            <input type="number" id="reverseCurrentExpenses" placeholder="e.g. 800">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reverseCurrentSavings">Current Savings ($)</label>
+                            <input type="number" id="reverseCurrentSavings" placeholder="e.g. 5,000">
+                        </div>
+                        <div class="form-group">
+                            <label for="reverseUtilities">Expected Monthly Utilities ($)</label>
+                            <input type="number" id="reverseUtilities" placeholder="e.g. 150">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateAffordability()">Calculate Move Out Affordability</button>
+
+            <div id="result" class="result"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>Move Out Affordability Guidelines</h2>
+            <p>Moving out is a major financial decision that requires careful planning. Our calculator uses the <strong>30% rule</strong> - your housing costs (rent + utilities) should not exceed 30% of your gross monthly income.</p>
+            <p>We also factor in the importance of having an emergency fund covering 3-6 months of expenses before moving out, as well as one-time costs like security deposits and moving expenses.</p>
+            <p>Remember to account for all living expenses including groceries, transportation, insurance, and entertainment when planning your move to independence.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+            
+            // Clear previous results
+            document.getElementById('result').style.display = 'none';
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+
+        function calculateAffordability() {
+            const activeTab = document.querySelector('.tab-content.active').id;
+            
+            if (activeTab === 'basic-tab') {
+                calculateBasic();
+            } else if (activeTab === 'detailed-tab') {
+                calculateDetailed();
+            } else {
+                calculateReverse();
+            }
+        }
+
+        function calculateBasic() {
+            const monthlyIncome = parseFloat(document.getElementById('monthlyIncome').value);
+            const currentExpenses = parseFloat(document.getElementById('currentExpenses').value);
+            const currentSavings = parseFloat(document.getElementById('currentSavings').value);
+            const emergencyFund = parseFloat(document.getElementById('emergencyFund').value);
+            const monthlyRent = parseFloat(document.getElementById('monthlyRent').value);
+            const utilities = parseFloat(document.getElementById('utilities').value);
+            const securityDeposit = parseFloat(document.getElementById('securityDeposit').value);
+            const movingCosts = parseFloat(document.getElementById('movingCosts').value) || 500;
+
+            if (!monthlyIncome || !currentExpenses || !currentSavings || !monthlyRent || !utilities || !securityDeposit) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const totalHousingCost = monthlyRent + utilities;
+            const housingRatio = (totalHousingCost / monthlyIncome) * 100;
+            const disposableIncome = monthlyIncome - currentExpenses;
+            const totalUpfrontCosts = securityDeposit + movingCosts + monthlyRent; // First month + deposit + moving
+            const requiredEmergencyFund = totalHousingCost * emergencyFund;
+            const totalNeededSavings = totalUpfrontCosts + requiredEmergencyFund;
+            
+            let resultClass, resultIcon, resultTitle, resultMessage;
+            
+            if (housingRatio <= 30 && currentSavings >= totalNeededSavings && disposableIncome >= totalHousingCost) {
+                resultClass = 'success';
+                resultIcon = '✅';
+                resultTitle = 'YES, you can afford to move out!';
+                resultMessage = `Your housing costs of ${formatCurrency(totalHousingCost)} are ${housingRatio.toFixed(1)}% of your income, which follows the 30% rule. You have sufficient savings and income.`;
+            } else if (housingRatio <= 35 && currentSavings >= totalUpfrontCosts) {
+                resultClass = 'warning';
+                resultIcon = '⚠️';
+                resultTitle = 'MAYBE - Moving out will be tight financially';
+                resultMessage = `Your housing costs of ${formatCurrency(totalHousingCost)} are ${housingRatio.toFixed(1)}% of your income. You can cover upfront costs but should build more emergency savings.`;
+            } else {
+                resultClass = 'danger';
+                resultIcon = '❌';
+                resultTitle = 'NO, you cannot afford to move out yet';
+                resultMessage = `Your housing costs of ${formatCurrency(totalHousingCost)} are ${housingRatio.toFixed(1)}% of your income, which exceeds safe guidelines. You need more savings or income.`;
+            }
+
+            const breakdown = `
+                <div class="result-details">
+                    <div class="result-card">
+                        <h4>Housing Cost Ratio</h4>
+                        <div class="value">${housingRatio.toFixed(1)}%</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Upfront Costs</h4>
+                        <div class="value">${formatCurrency(totalUpfrontCosts)}</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Emergency Fund Needed</h4>
+                        <div class="value">${formatCurrency(requiredEmergencyFund)}</div>
+                    </div>
+                </div>
+                
+                <div class="cost-breakdown">
+                    <h4>Monthly Housing Costs:</h4>
+                    <div class="cost-item">
+                        <span>Rent:</span>
+                        <span>${formatCurrency(monthlyRent)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Utilities:</span>
+                        <span>${formatCurrency(utilities)}</span>
+                    </div>
+                    <div class="cost-item total">
+                        <span>Total Monthly Housing:</span>
+                        <span>${formatCurrency(totalHousingCost)}</span>
+                    </div>
+                </div>
+                
+                <div class="affordability-meter">
+                    <div class="meter-label">Housing Cost as % of Income</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill ${housingRatio <= 30 ? 'good' : housingRatio <= 35 ? 'warning' : 'danger'}" style="width: ${Math.min(housingRatio, 100)}%">
+                            <span class="meter-percentage">${housingRatio.toFixed(1)}%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('basic')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just checked if I can afford to move out with ${formatCurrency(monthlyRent)} rent! ${resultTitle} Check yours: https://caniafford.online/moveout/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/moveout/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function calculateDetailed() {
+            const monthlyIncome = parseFloat(document.getElementById('detailedMonthlyIncome').value);
+            const currentSavings = parseFloat(document.getElementById('detailedCurrentSavings').value);
+            const monthlyRent = parseFloat(document.getElementById('detailedMonthlyRent').value);
+            const utilities = parseFloat(document.getElementById('detailedUtilities').value);
+            const securityDeposit = parseFloat(document.getElementById('detailedSecurityDeposit').value);
+            const rentersInsurance = parseFloat(document.getElementById('rentersInsurance').value) || 25;
+            const groceries = parseFloat(document.getElementById('groceries').value) || 300;
+            const transportation = parseFloat(document.getElementById('transportation').value) || 200;
+            const phoneInternet = parseFloat(document.getElementById('phoneInternet').value) || 100;
+            const entertainment = parseFloat(document.getElementById('entertainment').value) || 200;
+            const personalCare = parseFloat(document.getElementById('personalCare').value) || 100;
+            const movingCosts = parseFloat(document.getElementById('detailedMovingCosts').value) || 1000;
+
+            if (!monthlyIncome || !currentSavings || !monthlyRent || !utilities || !securityDeposit) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const totalHousingCost = monthlyRent + utilities + rentersInsurance;
+            const totalLivingExpenses = totalHousingCost + groceries + transportation + phoneInternet + entertainment + personalCare;
+            const housingRatio = (totalHousingCost / monthlyIncome) * 100;
+            const totalExpenseRatio = (totalLivingExpenses / monthlyIncome) * 100;
+            const disposableIncome = monthlyIncome - totalLivingExpenses;
+            const totalUpfrontCosts = securityDeposit + movingCosts + monthlyRent;
+            const requiredEmergencyFund = totalLivingExpenses * 6; // 6 months of total expenses
+            
+            let resultClass, resultIcon, resultTitle, resultMessage;
+            
+            if (housingRatio <= 30 && totalExpenseRatio <= 80 && currentSavings >= totalUpfrontCosts && disposableIncome > 0) {
+                resultClass = 'success';
+                resultIcon = '✅';
+                resultTitle = 'YES, you can afford to move out!';
+                resultMessage = `Your total living expenses of ${formatCurrency(totalLivingExpenses)} are ${totalExpenseRatio.toFixed(1)}% of your income. You have ${formatCurrency(disposableIncome)} left over each month.`;
+            } else if (housingRatio <= 35 && totalExpenseRatio <= 90 && currentSavings >= totalUpfrontCosts) {
+                resultClass = 'warning';
+                resultIcon = '⚠️';
+                resultTitle = 'MAYBE - Moving out will be financially tight';
+                resultMessage = `Your total living expenses of ${formatCurrency(totalLivingExpenses)} are ${totalExpenseRatio.toFixed(1)}% of your income. You'll have limited financial flexibility.`;
+            } else {
+                resultClass = 'danger';
+                resultIcon = '❌';
+                resultTitle = 'NO, you cannot afford to move out yet';
+                resultMessage = `Your total living expenses of ${formatCurrency(totalLivingExpenses)} are ${totalExpenseRatio.toFixed(1)}% of your income, which is unsustainable. You need higher income or lower expenses.`;
+            }
+
+            const breakdown = `
+                <div class="result-details">
+                    <div class="result-card">
+                        <h4>Housing Ratio</h4>
+                        <div class="value">${housingRatio.toFixed(1)}%</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Expense Ratio</h4>
+                        <div class="value">${totalExpenseRatio.toFixed(1)}%</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Monthly Leftover</h4>
+                        <div class="value">${formatCurrency(disposableIncome)}</div>
+                    </div>
+                </div>
+                
+                <div class="cost-breakdown">
+                    <h4>Complete Monthly Budget:</h4>
+                    <div class="cost-item">
+                        <span>Rent:</span>
+                        <span>${formatCurrency(monthlyRent)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Utilities:</span>
+                        <span>${formatCurrency(utilities)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Renters Insurance:</span>
+                        <span>${formatCurrency(rentersInsurance)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Groceries:</span>
+                        <span>${formatCurrency(groceries)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Transportation:</span>
+                        <span>${formatCurrency(transportation)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Phone & Internet:</span>
+                        <span>${formatCurrency(phoneInternet)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Entertainment:</span>
+                        <span>${formatCurrency(entertainment)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Personal Care:</span>
+                        <span>${formatCurrency(personalCare)}</span>
+                    </div>
+                    <div class="cost-item total">
+                        <span>Total Monthly Expenses:</span>
+                        <span>${formatCurrency(totalLivingExpenses)}</span>
+                    </div>
+                </div>
+                
+                <div class="affordability-meter">
+                    <div class="meter-label">Total Expenses as % of Income</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill ${totalExpenseRatio <= 80 ? 'good' : totalExpenseRatio <= 90 ? 'warning' : 'danger'}" style="width: ${Math.min(totalExpenseRatio, 100)}%">
+                            <span class="meter-percentage">${totalExpenseRatio.toFixed(1)}%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('detailed')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I analyzed my complete budget for moving out! ${resultTitle} Check your move out readiness: https://caniafford.online/moveout/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/moveout/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function calculateReverse() {
+            const monthlyIncome = parseFloat(document.getElementById('reverseMonthlyIncome').value);
+            const currentExpenses = parseFloat(document.getElementById('reverseCurrentExpenses').value);
+            const currentSavings = parseFloat(document.getElementById('reverseCurrentSavings').value);
+            const utilities = parseFloat(document.getElementById('reverseUtilities').value);
+
+            if (!monthlyIncome || !currentExpenses || !currentSavings || !utilities) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const affordableHousingCost = monthlyIncome * 0.30; // 30% rule
+            const maxAffordableRent = affordableHousingCost - utilities;
+            const disposableIncome = monthlyIncome - currentExpenses;
+            const recommendedRent = Math.min(maxAffordableRent, disposableIncome - utilities - 200); // Leave $200 buffer
+
+            const resultClass = 'success';
+            const resultIcon = '🏠';
+            const resultTitle = `You can afford rent up to ${formatCurrency(recommendedRent)}`;
+            const resultMessage = `Based on your income of ${formatCurrency(monthlyIncome)} and the 30% rule, your maximum affordable housing cost is ${formatCurrency(affordableHousingCost)} including utilities.`;
+
+            const breakdown = `
+                <div class="result-details">
+                    <div class="result-card">
+                        <h4>Max Housing Budget</h4>
+                        <div class="value">${formatCurrency(affordableHousingCost)}</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Max Rent</h4>
+                        <div class="value">${formatCurrency(maxAffordableRent)}</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Recommended Rent</h4>
+                        <div class="value">${formatCurrency(recommendedRent)}</div>
+                    </div>
+                </div>
+                
+                <div class="cost-breakdown">
+                    <h4>Affordable Housing Budget:</h4>
+                    <div class="cost-item">
+                        <span>Maximum Rent:</span>
+                        <span>${formatCurrency(maxAffordableRent)}</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>Utilities:</span>
+                        <span>${formatCurrency(utilities)}</span>
+                    </div>
+                    <div class="cost-item total">
+                        <span>Total Housing Cost:</span>
+                        <span>${formatCurrency(affordableHousingCost)}</span>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('reverse')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I can afford rent up to ${formatCurrency(recommendedRent)} based on my income! Find out what you can afford: https://caniafford.online/moveout/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/moveout/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function displayResult(resultClass, resultIcon, resultTitle, resultMessage) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = `result ${resultClass}`;
+            resultDiv.innerHTML = `
+                <span class="result-icon">${resultIcon}</span>
+                <div class="result-title">${resultTitle}</div>
+                <div class="result-message">${resultMessage}</div>
+            `;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function shareResult(type) {
+            const resultTitle = document.querySelector('.result-title').textContent;
+            const shareText = `${resultTitle}\n\nCalculated using the free move out affordability calculator at https://caniafford.online/moveout/`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Move Out Affordability Result',
+                    text: shareText,
+                    url: 'https://caniafford.online/moveout/'
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Result copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+
