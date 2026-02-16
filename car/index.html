@@ -994,76 +994,150 @@
             }
         }
     </script>
-</body>
-    <!-- 🚀 VIRAL SHARE BUTTON START -->
+    <!-- 🔢 AUTO-COMMA FORMAT + SHARE BUTTON START -->
 <style>
-  #viral-share-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Style for share button */
+  .share-btn-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+    text-align: center;
+    display: none; /* Hidden by default, shown after calc */
+  }
+  .share-btn {
+    background: #2563eb;
     color: white;
     border: none;
-    padding: 15px 25px;
-    border-radius: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 9999;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    transition: transform 0.2s;
-    font-family: sans-serif;
+    gap: 8px;
   }
-  #viral-share-btn:hover {
-    transform: scale(1.05);
-  }
-  #viral-share-btn:active {
-    transform: scale(0.95);
-  }
-  /* Mobile adjustment */
-  @media (max-width: 600px) {
-    #viral-share-btn {
-      bottom: 10px;
-      right: 10px;
-      padding: 12px 20px;
-      font-size: 14px;
-    }
-  }
+  .share-btn:hover { background: #1d4ed8; }
 </style>
 
-<button id="viral-share-btn" onclick="shareSite()">
-  <span>🚀</span> <span>Share Result</span>
-</button>
+<!-- Share Button HTML (appears below calculate button) -->
+<div id="share-section" class="share-btn-container">
+  <p style="margin: 0 0 10px 0; font-weight: bold; color: #166534;">🎉 Got your result? Share it!</p>
+  <button class="share-btn" onclick="shareAffordability()">
+    <span>📤</span> Share My Result
+  </button>
+</div>
 
 <script>
-  async function shareSite() {
-    const shareData = {
-      title: 'Can I Afford This?',
-      text: 'I just checked what I can afford using this free calculator! 💰 Try it yourself:',
-      url: window.location.href
-    };
+  // === AUTO-COMMA FORMATTING FOR INPUTS ===
+  // Targets all inputs with $ in placeholder/label or type="number"
+  function addCommasToInputs() {
+    const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
+    inputs.forEach(input => {
+      // Skip non-currency fields
+      if (input.placeholder?.toLowerCase().includes('email') || 
+          input.placeholder?.toLowerCase().includes('name')) return;
+      
+      // Add comma formatting on input
+      input.addEventListener('input', function(e) {
+        let value = this.value.replace(/[^0-9]/g, ''); // Remove non-digits
+        if (value) {
+          this.value = parseInt(value).toLocaleString(); // Add commas
+        }
+      });
+      
+      // Remove commas before form submission/calculation
+      input.addEventListener('blur', function(e) {
+        // Keep commas for display, but we'll strip them in the calculate function
+      });
+    });
+  }
 
-    // Try native share (Mobile)
+  // === SHARE FUNCTION ===
+  async function shareAffordability() {
+    const url = window.location.href;
+    const page = url.includes('/car') ? 'car' : 
+                 url.includes('/house') ? 'house' : 
+                 url.includes('/wedding') ? 'wedding' : 'moveout';
+    
+    const messages = {
+      car: "🚗 I just calculated what car I can afford! Try this free calculator:",
+      house: "🏠 I just checked what house I can afford! Try this free calculator:",
+      wedding: "💍 I just planned my wedding budget! Try this free calculator:",
+      moveout: "📦 I just figured out if I can afford to move out! Try this free calculator:"
+    };
+    
+    const text = `${messages[page]} ${url}`;
+    
     if (navigator.share) {
       try {
-        await navigator.share(shareData);
-      } catch (err) {
-        console.log('Share canceled');
-      }
+        await navigator.share({ 
+          title: 'Can I Afford This?', 
+          text: text, 
+          url: url 
+        });
+      } catch (err) { /* User canceled */ }
     } else {
-      // Fallback for Desktop (Copy to Clipboard)
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        alert('Link copied to clipboard! 📋 Paste it to share with friends.');
-      } catch (err) {
-        alert('Oops! Please copy the URL manually.');
-      }
+      await navigator.clipboard.writeText(url);
+      alert('✅ Link copied! 📋 Paste it anywhere to share.');
     }
   }
+
+  // === SHOW SHARE BUTTON AFTER CALCULATE CLICK ===
+  function setupShareButton() {
+    // Find all buttons that contain "Calculate" text
+    const calcButtons = Array.from(document.querySelectorAll('button')).filter(btn => 
+      btn.textContent.toLowerCase().includes('calculate')
+    );
+    
+    calcButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Show share button after a short delay (lets calculation run first)
+        setTimeout(() => {
+          document.getElementById('share-section').style.display = 'block';
+          // Smooth scroll to share button on mobile
+          if (window.innerWidth < 768) {
+            document.getElementById('share-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }, 800);
+      });
+    });
+  }
+
+  // === STRIP COMMAS BEFORE ANY CALCULATION (Critical!) ===
+  // Override any form submission or calculation trigger
+  function stripCommasForCalculation() {
+    const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
+    inputs.forEach(input => {
+      // If this input has commas, prepare a hidden field with clean value
+      if (input.value.includes(',')) {
+        const cleanValue = input.value.replace(/,/g, '');
+        // Store clean value in data attribute for your calc script to use
+        input.dataset.cleanValue = cleanValue;
+      }
+    });
+  }
+
+  // === INITIALIZATION ===
+  document.addEventListener('DOMContentLoaded', function() {
+    addCommasToInputs();
+    setupShareButton();
+    
+    // Intercept any calculation attempts to strip commas first
+    document.addEventListener('click', function(e) {
+      if (e.target.textContent.toLowerCase().includes('calculate')) {
+        stripCommasForCalculation();
+      }
+    });
+    
+    // Also show share button if page loads with result params (for direct links)
+    if (window.location.search.includes('result') || document.body.textContent.includes('Monthly Payment')) {
+      document.getElementById('share-section').style.display = 'block';
+    }
+  });
 </script>
-<!-- 🚀 VIRAL SHARE BUTTON END -->
-</html>
+<!-- 🔢 AUTO-COMMA FORMAT + SHARE BUTTON END -->
+</body>
+    </html>
 
