@@ -965,5 +965,75 @@
         }
     </script>
 </body>
+   <!-- 🚀 VIRAL SHARE BUTTON START -->
+<style>
+  #viral-share-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+    font-family: sans-serif;
+  }
+  #viral-share-btn:hover {
+    transform: scale(1.05);
+  }
+  #viral-share-btn:active {
+    transform: scale(0.95);
+  }
+  /* Mobile adjustment */
+  @media (max-width: 600px) {
+    #viral-share-btn {
+      bottom: 10px;
+      right: 10px;
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+  }
+</style>
+
+<button id="viral-share-btn" onclick="shareSite()">
+  <span>🚀</span> <span>Share Result</span>
+</button>
+
+<script>
+  async function shareSite() {
+    const shareData = {
+      title: 'Can I Afford This?',
+      text: 'I just checked what I can afford using this free calculator! 💰 Try it yourself:',
+      url: window.location.href
+    };
+
+    // Try native share (Mobile)
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.log('Share canceled');
+      }
+    } else {
+      // Fallback for Desktop (Copy to Clipboard)
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard! 📋 Paste it to share with friends.');
+      } catch (err) {
+        alert('Oops! Please copy the URL manually.');
+      }
+    }
+  }
+</script>
+<!-- 🚀 VIRAL SHARE BUTTON END -->
 </html>
 
