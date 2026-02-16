@@ -1030,114 +1030,162 @@
 </div>
 
 <script>
-  // === AUTO-COMMA FORMATTING FOR INPUTS ===
-  // Targets all inputs with $ in placeholder/label or type="number"
-  function addCommasToInputs() {
-    const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
-    inputs.forEach(input => {
-      // Skip non-currency fields
-      if (input.placeholder?.toLowerCase().includes('email') || 
-          input.placeholder?.toLowerCase().includes('name')) return;
-      
-      // Add comma formatting on input
-      input.addEventListener('input', function(e) {
-        let value = this.value.replace(/[^0-9]/g, ''); // Remove non-digits
-        if (value) {
-          this.value = parseInt(value).toLocaleString(); // Add commas
-        }
-      });
-      
-      // Remove commas before form submission/calculation
-      input.addEventListener('blur', function(e) {
-        // Keep commas for display, but we'll strip them in the calculate function
-      });
-    });
+<!-- ✅ FIXED: COMMA FORMAT + SHARE BUTTON -->
+<style>
+  .share-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #86efac;
+    border-radius: 12px;
+    text-align: center;
+    display: none;
   }
+  .share-btn {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  .share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+  }
+  .share-section h3 {
+    margin: 0 0 15px 0;
+    color: #166534;
+    font-size: 18px;
+  }
+</style>
 
-  // === SHARE FUNCTION ===
-  async function shareAffordability() {
-    const url = window.location.href;
-    const page = url.includes('/car') ? 'car' : 
-                 url.includes('/house') ? 'house' : 
-                 url.includes('/wedding') ? 'wedding' : 'moveout';
+<div id="share-section" class="share-section">
+  <h3>🎉 Got Your Result? Share It!</h3>
+  <button class="share-btn" onclick="shareMyResult()">
+    <span>📤</span> Share My Result
+  </button>
+</div>
+
+<script>
+// === SAFE COMMA FORMATTING (Won't Break Input) ===
+function setupCommaFormatting() {
+  // Only target inputs with $ in placeholder or label
+  const moneyInputs = document.querySelectorAll('input[placeholder*="$"], input[placeholder*="Price"], input[placeholder*="Income"], input[placeholder*="Payment"], input[placeholder*="Budget"], input[placeholder*="Rent"], input[placeholder*="Cost"]');
+  
+  moneyInputs.forEach(input => {
+    // Format on blur (when user leaves the field) - SAFER than on input
+    input.addEventListener('blur', function() {
+      let val = this.value.replace(/[^0-9]/g, '');
+      if (val && val.length > 3) {
+        this.value = parseInt(val).toLocaleString();
+      }
+    });
     
-    const messages = {
-      car: "🚗 I just calculated what car I can afford! Try this free calculator:",
-      house: "🏠 I just checked what house I can afford! Try this free calculator:",
-      wedding: "💍 I just planned my wedding budget! Try this free calculator:",
-      moveout: "📦 I just figured out if I can afford to move out! Try this free calculator:"
-    };
-    
-    const text = `${messages[page]} ${url}`;
-    
-    if (navigator.share) {
-      try {
-        await navigator.share({ 
-          title: 'Can I Afford This?', 
-          text: text, 
-          url: url 
-        });
-      } catch (err) { /* User canceled */ }
-    } else {
-      await navigator.clipboard.writeText(url);
-      alert('✅ Link copied! 📋 Paste it anywhere to share.');
+    // Clean value on focus (so user can edit easily)
+    input.addEventListener('focus', function() {
+      this.value = this.value.replace(/,/g, '');
+    });
+  });
+}
+
+// === SHARE FUNCTION (Actually Works) ===
+async function shareMyResult() {
+  const url = window.location.href;
+  let pageName = 'Can I Afford This?';
+  let emoji = '💰';
+  
+  if (url.includes('/car')) { pageName = 'Car Affordability'; emoji = '🚗'; }
+  else if (url.includes('/house')) { pageName = 'House Affordability'; emoji = '🏠'; }
+  else if (url.includes('/wedding')) { pageName = 'Wedding Budget'; emoji = '💍'; }
+  else if (url.includes('/moveout')) { pageName = 'Move Out Budget'; emoji = '📦'; }
+  
+  const shareText = `${emoji} I just calculated my ${pageName}! Check what you can afford with this FREE calculator:`;
+  
+  // Try native share first (mobile)
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: pageName,
+        text: shareText,
+        url: url
+      });
+      return;
+    } catch (err) {
+      // User canceled, do nothing
     }
   }
+  
+  // Fallback: copy to clipboard
+  try {
+    await navigator.clipboard.writeText(url);
+    alert('✅ Link copied! 📋\n\nPaste it in WhatsApp, Twitter, or text to share!');
+  } catch (err) {
+    // Last resort: prompt user to copy
+    prompt('Copy this link to share:', url);
+  }
+}
 
-  // === SHOW SHARE BUTTON AFTER CALCULATE CLICK ===
-  function setupShareButton() {
-    // Find all buttons that contain "Calculate" text
-    const calcButtons = Array.from(document.querySelectorAll('button')).filter(btn => 
-      btn.textContent.toLowerCase().includes('calculate')
-    );
-    
-    calcButtons.forEach(btn => {
+// === SHOW SHARE BUTTON AFTER CALCULATE CLICK ===
+function setupShareButton() {
+  // Find all calculate buttons
+  const calcButtons = document.querySelectorAll('button');
+  calcButtons.forEach(btn => {
+    if (btn.textContent.toLowerCase().includes('calculate')) {
       btn.addEventListener('click', function() {
-        // Show share button after a short delay (lets calculation run first)
-        setTimeout(() => {
-          document.getElementById('share-section').style.display = 'block';
-          // Smooth scroll to share button on mobile
-          if (window.innerWidth < 768) {
-            document.getElementById('share-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Show share button after 1.5 seconds (gives time for results to appear)
+        setTimeout(function() {
+          const shareSection = document.getElementById('share-section');
+          if (shareSection) {
+            shareSection.style.display = 'block';
+            // Scroll to it on mobile
+            if (window.innerWidth < 768) {
+              shareSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
           }
-        }, 800);
+        }, 1500);
       });
-    });
-  }
-
-  // === STRIP COMMAS BEFORE ANY CALCULATION (Critical!) ===
-  // Override any form submission or calculation trigger
-  function stripCommasForCalculation() {
-    const inputs = document.querySelectorAll('input[type="text"], input[type="number"]');
-    inputs.forEach(input => {
-      // If this input has commas, prepare a hidden field with clean value
-      if (input.value.includes(',')) {
-        const cleanValue = input.value.replace(/,/g, '');
-        // Store clean value in data attribute for your calc script to use
-        input.dataset.cleanValue = cleanValue;
-      }
-    });
-  }
-
-  // === INITIALIZATION ===
-  document.addEventListener('DOMContentLoaded', function() {
-    addCommasToInputs();
-    setupShareButton();
-    
-    // Intercept any calculation attempts to strip commas first
-    document.addEventListener('click', function(e) {
-      if (e.target.textContent.toLowerCase().includes('calculate')) {
-        stripCommasForCalculation();
-      }
-    });
-    
-    // Also show share button if page loads with result params (for direct links)
-    if (window.location.search.includes('result') || document.body.textContent.includes('Monthly Payment')) {
-      document.getElementById('share-section').style.display = 'block';
     }
   });
+}
+
+// === STRIP COMMAS BEFORE ANY CALCULATION ===
+function stripCommasBeforeCalc() {
+  const allInputs = document.querySelectorAll('input[type="text"], input[type="number"]');
+  allInputs.forEach(input => {
+    if (input.value.includes(',')) {
+      // Store clean value in a data attribute
+      input.setAttribute('data-clean-value', input.value.replace(/,/g, ''));
+    }
+  });
+}
+
+// === INTERCEPT CALCULATE CLICKS ===
+document.addEventListener('click', function(e) {
+  if (e.target.tagName === 'BUTTON' && e.target.textContent.toLowerCase().includes('calculate')) {
+    stripCommasBeforeCalc();
+  }
+});
+
+// === INITIALIZE ON PAGE LOAD ===
+document.addEventListener('DOMContentLoaded', function() {
+  setupCommaFormatting();
+  setupShareButton();
+});
+
+// Also run immediately in case DOMContentLoaded already fired
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  setupCommaFormatting();
+  setupShareButton();
+}
 </script>
-<!-- 🔢 AUTO-COMMA FORMAT + SHARE BUTTON END -->
+<!-- ✅ END: COMMA FORMAT + SHARE BUTTON -->
 </body>
     </html>
 
