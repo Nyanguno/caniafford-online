@@ -18,17 +18,17 @@
     <title>Can I Afford This Car? - Free Calculator | No Email Required</title>
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Can I Afford This Car? - Free Calculator">
-    <meta property="og:description" content="Find out if you can afford that car instantly. Free calculator with no email required.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://caniafford.online/car/">
-    <meta property="og:image" content="https://caniafford.online/car/car-calculator-preview.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Can I Afford This Car? - Free Calculator">
-    <meta name="twitter:description" content="Find out if you can afford that car instantly. Free calculator with no email required.">
-    <meta name="twitter:image" content="https://caniafford.online/car/car-calculator-preview.jpg">
+<meta property="og:title" content="🚗 Can I Actually Afford This Car? Find Out in 60 Seconds">
+<meta property="og:description" content="Stop guessing. Plug in your income & car price and get an honest YES, NO, or MAYBE — plus your exact monthly costs. Free, instant, no email needed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://caniafford.online/car/">
+<meta property="og:image" content="https://caniafford.online/car/car-calculator-preview.png">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🚗 Can I Actually Afford This Car? Find Out in 60 Seconds">
+<meta name="twitter:description" content="Stop guessing. Plug in your income & car price and get an honest YES, NO, or MAYBE — plus your exact monthly costs. Free, instant, no email needed.">
+<meta name="twitter:image" content="https://caniafford.online/car/car-calculator-preview.png">
     
     <!-- Favicon - Multiple sizes for better compatibility -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
@@ -1074,118 +1074,6 @@
 </div>
 
 <script>
-// === SAFE COMMA FORMATTING (Won't Break Input) ===
-function setupCommaFormatting() {
-  // Only target inputs with $ in placeholder or label
-  const moneyInputs = document.querySelectorAll('input[placeholder*="$"], input[placeholder*="Price"], input[placeholder*="Income"], input[placeholder*="Payment"], input[placeholder*="Budget"], input[placeholder*="Rent"], input[placeholder*="Cost"]');
-  
-  moneyInputs.forEach(input => {
-    // Format on blur (when user leaves the field) - SAFER than on input
-    input.addEventListener('blur', function() {
-      let val = this.value.replace(/[^0-9]/g, '');
-      if (val && val.length > 3) {
-        this.value = parseInt(val).toLocaleString();
-      }
-    });
-    
-    // Clean value on focus (so user can edit easily)
-    input.addEventListener('focus', function() {
-      this.value = this.value.replace(/,/g, '');
-    });
-  });
-}
-
-// === SHARE FUNCTION (Actually Works) ===
-async function shareMyResult() {
-  const url = window.location.href;
-  let pageName = 'Can I Afford This?';
-  let emoji = '💰';
-  
-  if (url.includes('/car')) { pageName = 'Car Affordability'; emoji = '🚗'; }
-  else if (url.includes('/house')) { pageName = 'House Affordability'; emoji = '🏠'; }
-  else if (url.includes('/wedding')) { pageName = 'Wedding Budget'; emoji = '💍'; }
-  else if (url.includes('/moveout')) { pageName = 'Move Out Budget'; emoji = '📦'; }
-  
-  const shareText = `${emoji} I just calculated my ${pageName}! Check what you can afford with this FREE calculator:`;
-  
-  // Try native share first (mobile)
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: pageName,
-        text: shareText,
-        url: url
-      });
-      return;
-    } catch (err) {
-      // User canceled, do nothing
-    }
-  }
-  
-  // Fallback: copy to clipboard
-  try {
-    await navigator.clipboard.writeText(url);
-    alert('✅ Link copied! 📋\n\nPaste it in WhatsApp, Twitter, or text to share!');
-  } catch (err) {
-    // Last resort: prompt user to copy
-    prompt('Copy this link to share:', url);
-  }
-}
-
-// === SHOW SHARE BUTTON AFTER CALCULATE CLICK ===
-function setupShareButton() {
-  // Find all calculate buttons
-  const calcButtons = document.querySelectorAll('button');
-  calcButtons.forEach(btn => {
-    if (btn.textContent.toLowerCase().includes('calculate')) {
-      btn.addEventListener('click', function() {
-        // Show share button after 1.5 seconds (gives time for results to appear)
-        setTimeout(function() {
-          const shareSection = document.getElementById('share-section');
-          if (shareSection) {
-            shareSection.style.display = 'block';
-            // Scroll to it on mobile
-            if (window.innerWidth < 768) {
-              shareSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-          }
-        }, 1500);
-      });
-    }
-  });
-}
-
-// === STRIP COMMAS BEFORE ANY CALCULATION ===
-function stripCommasBeforeCalc() {
-  const allInputs = document.querySelectorAll('input[type="text"], input[type="number"]');
-  allInputs.forEach(input => {
-    if (input.value.includes(',')) {
-      // Store clean value in a data attribute
-      input.setAttribute('data-clean-value', input.value.replace(/,/g, ''));
-    }
-  });
-}
-
-// === INTERCEPT CALCULATE CLICKS ===
-document.addEventListener('click', function(e) {
-  if (e.target.tagName === 'BUTTON' && e.target.textContent.toLowerCase().includes('calculate')) {
-    stripCommasBeforeCalc();
-  }
-});
-
-// === INITIALIZE ON PAGE LOAD ===
-document.addEventListener('DOMContentLoaded', function() {
-  setupCommaFormatting();
-  setupShareButton();
-});
-
-// Also run immediately in case DOMContentLoaded already fired
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  setupCommaFormatting();
-  setupShareButton();
-}
-</script>
-<!-- ✅ END: COMMA FORMAT + SHARE BUTTON -->
 </body>
     </html>
 
