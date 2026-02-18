@@ -10,7 +10,26 @@
 
   gtag('config', 'G-X606JS1X48');
 </script>
-    
+    // ---- Comma formatting helpers ----
+function formatInputNumber(input) {
+    // Save cursor position
+    let cursorPos = input.selectionStart;
+    // Strip everything except digits and dot
+    let raw = input.value.replace(/[^0-9.]/g, '');
+    // Split on decimal
+    let parts = raw.split('.');
+    // Add commas to integer part
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    // Rejoin
+    let formatted = parts.length > 1 ? parts[0] + '.' + parts[1] : parts[0];
+    input.value = formatted;
+}
+
+function parseInputValue(id) {
+    let val = document.getElementById(id).value.replace(/,/g, '');
+    return parseFloat(val);
+}
+// ---- End comma formatting helpers ----
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Can I afford to move out? Get an instant, free answer with our comprehensive move out affordability calculator. Calculate rent, utilities, and living costs - no email required.">
@@ -18,8 +37,8 @@
     <title>Can I Afford to Move Out? Rent Affordability Calculator</title>
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Can I Afford to Move Out? - Free Calculator">
-    <meta property="og:description" content="Find out if you can afford to move out and live independently. Free comprehensive calculator with detailed cost breakdown.">
+    <meta property="og:title" content="📦 Am I Ready to Move Out? Find Out in 60 Seconds">
+    <meta property="og:description" content="Calculate if your income covers rent, bills, food, and savings — get an honest answer with a full monthly budget breakdown. Free, no email needed.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://caniafford.online/moveout/">
     <meta property="og:image" content="https://caniafford.online/moveout/moveout-calculator-preview.png">
