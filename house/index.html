@@ -12,9 +12,9 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Can I afford this house? Get an instant, free answer using proven affordability rules. Save your calculations, track progress, and get personalized tips. No email required.">
-    <meta name="keywords" content="house affordability calculator, mortgage calculator, home affordability, can I afford this house, home buying calculator, 28% rule, save calculations, track progress">
-    <title>Can I Afford This House? - Enhanced Calculator with Progress Tracking | No Email Required</title>
+    <meta name="description" content="Find out if you can afford a house based on your income. This free calculator uses the 28% rule to check mortgage affordability, monthly payment, down payment, and debt-to-income ratio.">
+    <meta name="keywords" content="can i afford this house, house affordability calculator, home affordability calculator, how much house can i afford, mortgage affordability calculator, 28 percent rule mortgage, can i afford a house">
+    <title>Can I Afford This House? Free Calculator Using the 28% Rule</title>
     
     <!-- Open Graph Meta Tags -->
    <meta property="og:title" content="🏠 Can I Actually Afford This House? Get Your Answer in 60 Seconds">
@@ -531,6 +531,54 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much house can I afford based on my income?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 28% rule says your monthly mortgage payment (including principal, interest, taxes, and insurance) should not exceed 28% of your gross monthly income. If you earn $6,000/month, your maximum monthly housing cost is $1,680. Combined with a debt-to-income ratio under 36%, this helps ensure the mortgage is sustainable long-term."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the 28% rule for buying a house?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 28% rule is a mortgage affordability guideline that says your total monthly housing costs — mortgage payment, property taxes, and homeowner's insurance — should not exceed 28% of your gross monthly income. Lenders also look at the 36% rule: total debt payments (mortgage plus car loans, student loans, and credit cards) should stay under 36% of gross income."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much do I need for a down payment on a house?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A conventional mortgage typically requires 5–20% down. Putting down less than 20% usually means paying Private Mortgage Insurance (PMI), which adds $50–$200/month to your costs. FHA loans allow as little as 3.5% down for buyers with credit scores of 580 or higher. First-time buyer programs in many states offer down payment assistance grants."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What income do I need to afford a $300,000 house?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "At current mortgage rates, a $300,000 home with 10% down ($270,000 loan) at 7% interest over 30 years has a monthly payment of about $1,796. Using the 28% rule, you'd need a gross monthly income of at least $6,414 ($77,000/year) to comfortably afford that payment. With 20% down ($240,000 loan), the monthly payment drops to around $1,597, requiring about $5,700/month gross income."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What hidden costs should I budget for when buying a house?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Beyond the mortgage payment, budget for: property taxes (0.5–2.5% of home value per year), homeowner's insurance ($100–$200/month), HOA fees if applicable ($50–$500/month), PMI if your down payment is under 20%, closing costs (2–5% of the purchase price), and a maintenance reserve of 1% of the home's value per year for repairs."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -1317,6 +1365,58 @@ Calculated with Can I Afford Calculator - https://caniafford.online/house/`;
   <button class="share-btn" onclick="shareAffordability()">
     <span>📤</span> Share My Result
   </button>
+</div>
+
+<div style="max-width:900px;margin:40px auto;padding:0 20px;">
+    <div style="background:white;border-radius:20px;padding:40px;box-shadow:0 10px 30px rgba(0,0,0,0.08);margin-bottom:24px;">
+        <h2 style="color:#1f2937;font-size:1.6rem;margin-bottom:16px;">How Much House Can I Afford Based on My Income?</h2>
+        <p style="color:#374151;line-height:1.7;margin-bottom:16px;">The standard guideline is the <strong>28% rule</strong>: your total monthly housing cost — mortgage principal and interest, property taxes, and homeowner's insurance — should not exceed 28% of your gross monthly income. If you earn $7,000/month before tax, your total housing payment should stay under $1,960/month. Going above this threshold makes it harder to save, handle unexpected expenses, or absorb any income disruption.</p>
+        <p style="color:#374151;line-height:1.7;margin-bottom:16px;">Most lenders also apply the <strong>36% rule</strong>: your total debt payments — mortgage plus car loans, student loans, and credit card minimums — should stay under 36% of gross monthly income. Even if your mortgage alone fits within 28%, heavy other debt can still make you ineligible or put you in a financially fragile position.</p>
+
+        <h2 style="color:#1f2937;font-size:1.4rem;margin:28px 0 12px;">What Income Do You Need to Afford Different Home Prices?</h2>
+        <p style="color:#374151;line-height:1.7;margin-bottom:12px;">These estimates assume a 30-year mortgage at 7% interest, 10% down payment, and typical property tax and insurance costs:</p>
+        <ul style="margin:0 0 20px 24px;color:#374151;line-height:2.4;">
+            <li><strong>$150,000 home</strong> — ~$1,100/month. Minimum income: ~$47,000/year</li>
+            <li><strong>$250,000 home</strong> — ~$1,700/month. Minimum income: ~$73,000/year</li>
+            <li><strong>$350,000 home</strong> — ~$2,300/month. Minimum income: ~$99,000/year</li>
+            <li><strong>$500,000 home</strong> — ~$3,200/month. Minimum income: ~$137,000/year</li>
+        </ul>
+        <p style="color:#374151;line-height:1.7;margin-bottom:0;">These are minimums. Being at the ceiling of what you qualify for leaves no financial cushion. Most advisors recommend targeting a home where your housing costs are 20–25% of income, not at the 28% limit.</p>
+    </div>
+
+    <div style="background:white;border-radius:20px;padding:40px;box-shadow:0 10px 30px rgba(0,0,0,0.08);margin-bottom:24px;">
+        <h2 style="color:#1f2937;font-size:1.4rem;margin-bottom:16px;">The Hidden Costs of Buying a House</h2>
+        <p style="color:#374151;line-height:1.7;margin-bottom:16px;">First-time buyers consistently underestimate how much homeownership costs beyond the mortgage payment. Before you buy, make sure your budget accounts for all of these:</p>
+        <ul style="margin:0 0 20px 24px;color:#374151;line-height:2.4;">
+            <li><strong>Property taxes</strong> — 0.5–2.5% of home value per year, paid monthly via escrow</li>
+            <li><strong>Homeowner's insurance</strong> — typically $100–$200/month depending on location and coverage</li>
+            <li><strong>PMI (Private Mortgage Insurance)</strong> — required if your down payment is under 20%, adds $50–$250/month</li>
+            <li><strong>HOA fees</strong> — $50–$500+/month for condos and many newer developments</li>
+            <li><strong>Maintenance and repairs</strong> — budget 1% of home value per year; a $300,000 home means $3,000/year or $250/month set aside</li>
+            <li><strong>Closing costs</strong> — 2–5% of the purchase price, paid upfront at closing</li>
+            <li><strong>Moving costs</strong> — $500–$5,000 depending on distance and volume</li>
+        </ul>
+
+        <h2 style="color:#1f2937;font-size:1.4rem;margin:28px 0 12px;">Frequently Asked Questions</h2>
+
+        <h3 style="color:#1f2937;font-size:1.1rem;margin:20px 0 8px;">What credit score do I need to buy a house?</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:16px;">For a conventional mortgage, most lenders want a credit score of at least 620, though scores of 740+ get the best interest rates. FHA loans are available with scores as low as 580 (with 3.5% down) or even 500 (with 10% down). A higher credit score directly lowers your interest rate — the difference between a 680 and a 760 score can mean 0.5–1% lower rate, saving tens of thousands over the life of the loan.</p>
+
+        <h3 style="color:#1f2937;font-size:1.1rem;margin:20px 0 8px;">How much should I save before buying a house?</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:16px;">At minimum: your down payment (3.5–20% of the purchase price), plus closing costs (2–5%), plus a move-in reserve of $2,000–$5,000. Beyond that, you should keep a 3–6 month emergency fund intact after the purchase — buying a house should not wipe out your entire savings. If it would, you may need more time to save before buying.</p>
+
+        <h3 style="color:#1f2937;font-size:1.1rem;margin:20px 0 8px;">Is renting or buying better financially?</h3>
+        <p style="color:#374151;line-height:1.7;margin-bottom:0;">It depends heavily on how long you plan to stay. Buying typically becomes the better financial decision after 5–7 years in the same home, when you've built enough equity and offset the transaction costs. If you may move within 3–4 years, renting is often the smarter financial choice. The calculator above helps you understand whether the mortgage itself is affordable — but the rent vs. buy decision also depends on local price-to-rent ratios.</p>
+    </div>
+
+    <div style="background:white;border-radius:20px;padding:40px;box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+        <h2 style="color:#1f2937;font-size:1.3rem;margin-bottom:16px;">More Free Affordability Calculators</h2>
+        <ul style="margin:0 0 0 24px;color:#374151;line-height:2.4;">
+            <li><a href="/moveout/" style="color:#667eea;font-weight:500;">Can I Afford to Move Out?</a> — Full budget breakdown using the 30% rent rule</li>
+            <li><a href="/car/" style="color:#667eea;font-weight:500;">Can I Afford This Car?</a> — Check payments against the 20/4/10 rule</li>
+            <li><a href="/wedding/" style="color:#667eea;font-weight:500;">Can I Afford This Wedding?</a> — Plan your wedding without going into debt</li>
+        </ul>
+    </div>
 </div>
 
 <script>
