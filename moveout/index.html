@@ -153,7 +153,7 @@
             padding: 40px 0;
         }
         
-        .hero h1 {
+        .hero h1, .hero h2 {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 16px;
@@ -519,7 +519,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .hero h1 {
+            .hero h1, .hero h2 {
                 font-size: 2rem;
             }
             
@@ -529,6 +529,18 @@
             
             .share-buttons {
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 6px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -546,7 +558,7 @@
         </nav>
 
         <div class="hero">
-            <h2>Can I Afford to Move Out? 📦</h2>
+            <h1>Can I Afford to Move Out? 📦</h1>
             <p>Free move out affordability calculator with comprehensive cost analysis</p>
             <p class="subtitle">Get an instant answer to your independence question • No email required • 100% free</p>
         </div>
@@ -735,7 +747,7 @@
 
             <p>If your monthly living costs will be $2,000, aim to have at least $6,000–$8,000 saved before moving day. This gives you a security deposit, first and last month's rent, moving costs, and a 2-month emergency buffer — which most financial advisors consider the bare minimum.</p>
 
-            <h2>The Real Cost of Living Alone: What People Miss</h2>
+            <h2>Moving Out Cost Calculator: The Real Cost of Living Alone</h2>
             <p>Most people who run out of money in their first year of living alone missed something in their budget. The most commonly forgotten expenses are:</p>
             <ul style="margin: 12px 0 16px 24px; color: #374151; line-height: 2;">
                 <li><strong>Renters insurance</strong> — around $15/month, but often skipped entirely</li>
@@ -1039,12 +1051,16 @@
             const affordableHousingCost = monthlyIncome * 0.30; // 30% rule
             const maxAffordableRent = affordableHousingCost - utilities;
             const disposableIncome = monthlyIncome - currentExpenses;
-            const recommendedRent = Math.min(maxAffordableRent, disposableIncome - utilities - 200); // Leave $200 buffer
+            const recommendedRent = Math.max(0, Math.min(maxAffordableRent, disposableIncome - utilities - 200));
 
-            const resultClass = 'success';
-            const resultIcon = '🏠';
-            const resultTitle = `You can afford rent up to ${formatCurrency(recommendedRent)}`;
-            const resultMessage = `Based on your income of ${formatCurrency(monthlyIncome)} and the 30% rule, your maximum affordable housing cost is ${formatCurrency(affordableHousingCost)} including utilities.`;
+            const resultClass = recommendedRent > 0 ? 'success' : 'danger';
+            const resultIcon = recommendedRent > 0 ? '🏠' : '❌';
+            const resultTitle = recommendedRent > 0
+                ? `You can afford rent up to ${formatCurrency(recommendedRent)}`
+                : 'Your current expenses are too high to afford moving out';
+            const resultMessage = recommendedRent > 0
+                ? `Based on your income of ${formatCurrency(monthlyIncome)} and the 30% rule, your maximum affordable housing cost is ${formatCurrency(affordableHousingCost)} including utilities.`
+                : `Your monthly expenses of ${formatCurrency(currentExpenses)} leave no room for rent. You need to reduce expenses or increase income before moving out.`;
 
             const breakdown = `
                 <div class="result-details">
