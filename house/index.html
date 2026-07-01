@@ -530,6 +530,18 @@
                 justify-content: center;
             }
         }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 6px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links a {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -1420,6 +1432,106 @@ Calculated with Can I Afford Calculator - https://caniafford.online/house/`;
 </div>
 
 <script>
-  </body>
+  
+
+<style>
+.feedback-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  display: none; align-items: center; justify-content: center;
+  z-index: 9999; padding: 1rem;
+}
+.feedback-overlay.show { display: flex; }
+.feedback-card {
+  background: #fff; border-radius: 12px; padding: 1.5rem;
+  max-width: 380px; width: 100%; position: relative;
+  font-family: inherit; box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.feedback-close {
+  position: absolute; top: 12px; right: 12px; width: 28px; height: 28px;
+  border: none; background: transparent; cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+}
+.feedback-close:hover { background: #f1f1f1; }
+.feedback-title { font-size: 16px; font-weight: 600; margin: 0 0 4px; color: #111; }
+.feedback-sub { font-size: 13px; color: #666; margin: 0 0 1.25rem; }
+.feedback-option {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 10px 12px; text-align: left; border: 1px solid #ddd;
+  border-radius: 8px; background: #fff; cursor: pointer; margin-bottom: 8px;
+  font-size: 14px; transition: background 0.15s; color: #111;
+}
+.feedback-option:hover { background: #f7f7f7; }
+.feedback-option.selected { border-color: #6a5acd; background: #f3f1ff; }
+.feedback-textarea {
+  width: 100%; min-height: 60px; resize: none; margin: 8px 0 12px;
+  padding: 8px; border: 1px solid #ddd; border-radius: 8px; font-size: 13px;
+  font-family: inherit; box-sizing: border-box;
+}
+.feedback-submit {
+  width: 100%; background: #6a5acd; color: #fff; border: none;
+  padding: 10px; font-size: 14px; font-weight: 600; border-radius: 8px;
+  cursor: pointer;
+}
+.feedback-submit:disabled { opacity: 0.6; cursor: default; }
+.feedback-thanks { text-align: center; padding: 1rem 0; font-size: 14px; color: #111; }
+</style>
+
+<div class="feedback-overlay" id="feedbackOverlay">
+  <div class="feedback-card">
+    <button class="feedback-close" id="feedbackClose" aria-label="Close">✕</button>
+    <div id="feedbackBody">
+      <p class="feedback-title">How do you feel about this result?</p>
+      <p class="feedback-sub">Your answer helps us improve the calculator.</p>
+      <button class="feedback-option" data-sentiment="eye-opening">💡 Eye-opening, I needed this</button>
+      <button class="feedback-option" data-sentiment="disappointed-helpful">😕 Disappointed, but helpful</button>
+      <button class="feedback-option" data-sentiment="recheck">🔄 I'll re-check my numbers</button>
+      <button class="feedback-option" data-sentiment="skeptical">⚠️ I think this is wrong</button>
+      <textarea class="feedback-textarea" id="feedbackComment" placeholder="Anything we got wrong, or want to tell us?"></textarea>
+      <button class="feedback-submit" id="feedbackSubmit">Send feedback</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxe7cWy9JOn56nTKY36HIH0haTeg78jFBfzCtUJF7_VjxpGDZttx5EaDUez_q3DT5EX5w/exec";
+  var DELAY_MS = 7000;
+  var selectedSentiment = null;
+  var overlay = document.getElementById('feedbackOverlay');
+  var closeBtn = document.getElementById('feedbackClose');
+  var submitBtn = document.getElementById('feedbackSubmit');
+  var options = document.querySelectorAll('.feedback-option');
+  var commentBox = document.getElementById('feedbackComment');
+  var feedbackBody = document.getElementById('feedbackBody');
+  var hasShown = false;
+  options.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      options.forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      selectedSentiment = btn.getAttribute('data-sentiment');
+    });
+  });
+  closeBtn.addEventListener('click', function() { overlay.classList.remove('show'); });
+  submitBtn.addEventListener('click', function() {
+    if (!selectedSentiment) { alert('Please pick an option first.'); return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ calculatorType: 'house', result: window.CALC_RESULT || 'unknown', sentiment: selectedSentiment, comment: commentBox.value || '' })
+    }).then(function() {
+      feedbackBody.innerHTML = '<p class="feedback-thanks">Thanks — that helps us a lot. 🙏</p>';
+      setTimeout(function() { overlay.classList.remove('show'); }, 1800);
+    }).catch(function() { submitBtn.disabled = false; submitBtn.textContent = 'Send feedback'; });
+  });
+  window.triggerFeedbackPopup = function() {
+    if (hasShown) return;
+    hasShown = true;
+    setTimeout(function() { overlay.classList.add('show'); }, DELAY_MS);
+  };
+})();
+</script>
+
+</body>
     </html>
 
