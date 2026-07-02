@@ -483,6 +483,29 @@
                 font-size: 0.8rem;
             }
         }
+
+        /* ===== ROADMAP STYLES ===== */
+        .roadmap { margin-top: 24px; border-top: 2px solid rgba(0,0,0,0.08); padding-top: 20px; }
+        .roadmap-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; color: #1f2937; text-transform: uppercase; letter-spacing: 0.05em; }
+        .roadmap-steps { display: flex; flex-direction: column; gap: 12px; }
+        .roadmap-step { display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,0.6); border-radius: 10px; padding: 14px; }
+        .step-badge { min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: white; background: #667eea; flex-shrink: 0; }
+        .step-badge.done { background: #10b981; }
+        .step-badge.warn { background: #f59e0b; }
+        .step-badge.bad { background: #ef4444; }
+        .step-content { flex: 1; }
+        .step-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+        .step-label.pass { color: #059669; }
+        .step-label.fail { color: #dc2626; }
+        .step-label.warn { color: #d97706; }
+        .step-desc { font-size: 0.88rem; color: #374151; margin: 0; }
+        .step-action { font-size: 0.83rem; color: #6b7280; margin-top: 4px; font-style: italic; }
+        .savings-progress { margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.6); border-radius: 10px; }
+        .savings-progress h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #374151; margin-bottom: 12px; }
+        .progress-row { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; color: #4b5563; }
+        .progress-bar-wrap { background: #e5e7eb; border-radius: 6px; height: 8px; margin-bottom: 12px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s ease; }
+        .timeline-callout { margin-top: 12px; padding: 12px 16px; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; font-size: 0.88rem; color: #1e40af; font-weight: 500; }
     </style>
     <script type="application/ld+json">
     {
@@ -834,67 +857,126 @@
             const loanAmount = carPrice - downPayment - tradeInValue;
             const interestRate = getInterestRate(creditScore);
             const monthlyRate = interestRate / 100 / 12;
-            
-            // Calculate monthly car payment
             const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) / (Math.pow(1 + monthlyRate, loanTerm) - 1);
             const totalMonthlyCarCost = monthlyPayment + monthlyInsurance;
-            
             const monthlyIncome = annualIncome / 12;
-            const affordableCarPayment = monthlyIncome * 0.10; // 10% rule
-            const totalDebtRatio = ((monthlyDebt + totalMonthlyCarCost) / monthlyIncome) * 100;
             const carPaymentRatio = (totalMonthlyCarCost / monthlyIncome) * 100;
-            
+            const totalDebtRatio = ((monthlyDebt + totalMonthlyCarCost) / monthlyIncome) * 100;
+            const downPaymentPct = (downPayment / carPrice) * 100;
+            const totalInterest = (monthlyPayment * loanTerm) - loanAmount;
+            const maxAffordableMonthly = monthlyIncome * 0.10;
+            const maxAffordablePrice = (maxAffordableMonthly - monthlyInsurance) *
+                (Math.pow(1 + monthlyRate, loanTerm) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) + downPayment;
+
+            // Verdicts
+            const ruleOk = carPaymentRatio <= 10;
+            const ruleTight = carPaymentRatio <= 15;
+            const downOk = downPaymentPct >= 20;
+            const downTight = downPaymentPct >= 10;
+            const termOk = loanTerm <= 48;
+            const debtOk = totalDebtRatio <= 36;
+
             let resultClass, resultIcon, resultTitle, resultMessage;
-            
-            if (totalMonthlyCarCost <= affordableCarPayment && totalDebtRatio <= 36) {
-                resultClass = 'success';
-                resultIcon = '✅';
-                resultTitle = 'YES, you can afford this car!';
-                resultMessage = `Your monthly car expenses of ${formatCurrency(totalMonthlyCarCost)} are ${carPaymentRatio.toFixed(1)}% of your income, which follows the 10% rule.`;
-            } else if (carPaymentRatio <= 15 && totalDebtRatio <= 40) {
-                resultClass = 'warning';
-                resultIcon = '⚠️';
-                resultTitle = 'MAYBE - This car is stretching your budget';
-                resultMessage = `Your monthly car expenses of ${formatCurrency(totalMonthlyCarCost)} are ${carPaymentRatio.toFixed(1)}% of your income, which exceeds the 10% rule but might be manageable.`;
+            if (ruleOk && downOk && termOk && debtOk) {
+                resultClass = 'success'; resultIcon = '✅';
+                resultTitle = 'You can afford this car';
+                resultMessage = `Your total monthly car cost of ${formatCurrency(totalMonthlyCarCost)} is ${carPaymentRatio.toFixed(1)}% of income — under the 10% guideline. The 20/4/10 rule checks out.`;
+            } else if (ruleTight && debtOk) {
+                resultClass = 'warning'; resultIcon = '⚠️';
+                resultTitle = 'You can afford it, but it's a stretch';
+                resultMessage = `Your monthly car cost of ${formatCurrency(totalMonthlyCarCost)} is ${carPaymentRatio.toFixed(1)}% of income — above the 10% rule. You won't be broke, but you'll have less room for savings and emergencies.`;
             } else {
-                resultClass = 'danger';
-                resultIcon = '❌';
-                resultTitle = 'NO, this car is too expensive';
-                resultMessage = `Your monthly car expenses of ${formatCurrency(totalMonthlyCarCost)} are ${carPaymentRatio.toFixed(1)}% of your income, which significantly exceeds safe affordability guidelines.`;
+                resultClass = 'danger'; resultIcon = '❌';
+                resultTitle = 'This car is too expensive for your income';
+                resultMessage = `At ${carPaymentRatio.toFixed(1)}% of monthly income, this car will strain your finances. The safe maximum for your salary is ${formatCurrency(maxAffordablePrice)}.`;
             }
+
+            // Checks
+            const checks = [
+                {
+                    badge: ruleOk ? 'done' : ruleTight ? 'warn' : 'bad',
+                    lc: ruleOk ? 'pass' : ruleTight ? 'warn' : 'fail',
+                    lt: ruleOk ? 'PASS' : ruleTight ? 'BORDERLINE' : 'FAIL',
+                    title: '10% Income Rule',
+                    desc: `Monthly car cost ${formatCurrency(totalMonthlyCarCost)} = ${carPaymentRatio.toFixed(1)}% of income. Target: under 10%.`,
+                    action: !ruleOk ? `To stay under 10%, your total monthly car cost should be under ${formatCurrency(maxAffordableMonthly)}. That means a car priced around ${formatCurrency(Math.max(0, maxAffordablePrice))}.` : null
+                },
+                {
+                    badge: downOk ? 'done' : downTight ? 'warn' : 'bad',
+                    lc: downOk ? 'pass' : downTight ? 'warn' : 'fail',
+                    lt: downOk ? 'PASS' : downTight ? 'LOW' : 'FAIL',
+                    title: '20% Down Payment',
+                    desc: `Your down payment is ${formatCurrency(downPayment)} (${downPaymentPct.toFixed(1)}% of car price). Recommended: at least 20%.`,
+                    action: !downOk ? `A larger down payment reduces your loan, monthly payment, and total interest. At 20% you'd put down ${formatCurrency(carPrice * 0.2)} and save ${formatCurrency(totalInterest * 0.15)} in interest.` : null
+                },
+                {
+                    badge: termOk ? 'done' : 'warn',
+                    lc: termOk ? 'pass' : 'warn',
+                    lt: termOk ? 'PASS' : 'CAUTION',
+                    title: 'Loan Term (max 48 months)',
+                    desc: `Your loan term is ${loanTerm} months. The 20/4/10 rule recommends 48 months or less.`,
+                    action: !termOk ? `Longer loans mean more interest paid. Over ${loanTerm} months you'll pay ${formatCurrency(totalInterest)} in interest. At 48 months, that drops significantly.` : null
+                },
+                {
+                    badge: debtOk ? 'done' : 'bad',
+                    lc: debtOk ? 'pass' : 'fail',
+                    lt: debtOk ? 'PASS' : 'FAIL',
+                    title: 'Total Debt Load',
+                    desc: `All debt (car + existing) = ${totalDebtRatio.toFixed(1)}% of income. Recommended: under 36%.`,
+                    action: !debtOk ? `Your existing monthly debt of ${formatCurrency(monthlyDebt)} plus this car pushes your debt ratio too high. Pay down existing debt first or choose a less expensive car.` : null
+                }
+            ];
+
+            const stepsHtml = checks.map(c => `
+                <div class="roadmap-step">
+                    <div class="step-badge ${c.badge}">${c.badge === 'done' ? '✓' : c.badge === 'warn' ? '~' : '✗'}</div>
+                    <div class="step-content">
+                        <div class="step-label ${c.lc}">${c.lt} — ${c.title}</div>
+                        <p class="step-desc">${c.desc}</p>
+                        ${c.action ? `<p class="step-action">→ ${c.action}</p>` : ''}
+                    </div>
+                </div>`).join('');
+
+            const savingsPct = Math.min(100, (downPayment / (carPrice * 0.2)) * 100);
+            const barColor = downPaymentPct >= 20 ? '#10b981' : downPaymentPct >= 10 ? '#f59e0b' : '#ef4444';
 
             const breakdown = `
                 <div class="payment-breakdown">
                     <h4>Monthly Car Cost Breakdown:</h4>
-                    <div class="payment-item">
-                        <span>Car Payment:</span>
-                        <span>${formatCurrency(monthlyPayment)}</span>
+                    <div class="payment-item"><span>Loan Payment:</span><span>${formatCurrency(monthlyPayment)}</span></div>
+                    <div class="payment-item"><span>Insurance:</span><span>${formatCurrency(monthlyInsurance)}</span></div>
+                    <div class="payment-item total"><span>Total Monthly Cost:</span><span>${formatCurrency(totalMonthlyCarCost)}</span></div>
+                </div>
+                <div class="savings-progress">
+                    <h4>Down Payment Progress (target: 20%)</h4>
+                    <div class="progress-row">
+                        <span>${formatCurrency(downPayment)} saved</span>
+                        <span>Target: ${formatCurrency(carPrice * 0.2)}</span>
                     </div>
-                    <div class="payment-item">
-                        <span>Insurance:</span>
-                        <span>${formatCurrency(monthlyInsurance)}</span>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" style="width:${savingsPct}%;background:${barColor}"></div>
                     </div>
-                    <div class="payment-item total">
-                        <span>Total Monthly Car Cost:</span>
-                        <span>${formatCurrency(totalMonthlyCarCost)}</span>
+                    <div class="timeline-callout">
+                        💸 Total interest you'll pay over ${loanTerm} months: <strong>${formatCurrency(totalInterest)}</strong>${loanTerm > 48 ? ' — a shorter loan term would reduce this significantly.' : '.'}
                     </div>
                 </div>
-                
-                <div class="affordability-meter">
-                    <div class="meter-label">Car Payment as % of Income</div>
+                <div class="roadmap">
+                    <div class="roadmap-title">20/4/10 Rule Checklist</div>
+                    <div class="roadmap-steps">${stepsHtml}</div>
+                </div>
+                <div class="affordability-meter" style="margin-top:20px">
+                    <div class="meter-label">Car Cost as % of Income (target: under 10%)</div>
                     <div class="meter-bar">
-                        <div class="meter-fill ${carPaymentRatio <= 10 ? 'good' : carPaymentRatio <= 15 ? 'warning' : 'danger'}" style="width: ${Math.min(carPaymentRatio, 100)}%">
+                        <div class="meter-fill ${carPaymentRatio <= 10 ? 'good' : carPaymentRatio <= 15 ? 'warning' : 'danger'}" style="width:${Math.min(carPaymentRatio * 3, 100)}%">
                             <span class="meter-percentage">${carPaymentRatio.toFixed(1)}%</span>
                         </div>
                     </div>
                 </div>
-                
                 <div class="share-buttons">
                     <button class="share-btn" onclick="shareResult('basic')">📋 Copy Result</button>
-                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I just checked if I can afford a ${formatCurrency(carPrice)} car using this free calculator! ${resultTitle} Check yours: https://caniafford.online/car/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I checked if I can afford a ${formatCurrency(carPrice)} car — ${resultTitle}. Check yours: https://caniafford.online/car/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
                     <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/car/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
-                </div>
-            `;
+                </div>`;
 
             displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
         }
