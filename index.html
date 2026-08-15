@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X606JS1X48"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X606JS1X48');
+</script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free financial calculators to help you decide if you can afford a house, car, wedding, or moving out on your own. Enter your income and get an honest answer instantly. No email required.">
+    <title>Can I Afford? Free Calculators for House, Car, Wedding &amp; Moving Out</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Can I Afford? Free Financial Calculators">
+    <meta property="og:description" content="Free calculators for house, car, wedding, and moving out affordability. Enter your income and get an honest answer instantly. No email required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://caniafford.online">
+    <meta property="og:image" content="https://caniafford.online/assets/images/android-chrome-512x512.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Can I Afford? Free Financial Calculators">
+    <meta name="twitter:description" content="Free calculators for house, car, wedding, and moving out affordability. Honest answers instantly. No email required.">
+    <meta name="twitter:image" content="https://caniafford.online/assets/images/android-chrome-512x512.png">
+    
+    <!-- Favicon - Multiple sizes for better compatibility -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://caniafford.online">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Can I Afford - Financial Calculators",
+        "description": "Free financial calculators to help you make smart money decisions. Calculate affordability for houses, cars, weddings, and moving out.",
+        "url": "https://caniafford.online",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "House affordability calculator",
+            "Car affordability calculator", 
+            "Wedding budget calculator",
+            "Move out affordability calculator",
+            "Reverse calculations",
+            "No email required",
+            "Mobile friendly",
+            "100% free"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "Can I Afford",
+            "url": "https://caniafford.online",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "kelonwaithera@gmail.com",
+                "contactType": "customer service"
+            }
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What financial calculators do you offer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We offer free calculators for house affordability, car affordability, wedding budgeting, and moving out costs. All calculators include reverse calculations to help you determine what you can afford."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are these calculators really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! All our calculators are 100% free forever. No email required, no hidden fees, no premium features. We believe everyone deserves access to financial planning tools."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate are your affordability calculations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our calculators use industry-standard financial rules like the 28% housing rule, 20/4/10 car rule, and 15% wedding rule. They provide reliable estimates but should be used alongside professional financial advice."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to create an account to use the calculators?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. There is no sign-up, login, or account of any kind. Every calculator works the moment you land on the page."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my financial information stored anywhere?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Your income, expenses, and results are calculated entirely in your browser and are never sent to or stored on our servers. Closing the tab clears everything."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            padding: 60px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero .tagline {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+        
+        .viral-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            transition: transform 0.15s ease;
+        }
+
+        .hero-cta:hover { transform: translateY(-2px); }
+        
+        .feature-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .calculators-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .calculator-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.2);
+        }
+        
+        .calculator-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .calculator-card h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .calculator-card p {
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        
+        .calculator-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .calculator-features li {
+            color: #374151;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .calculator-features li::before {
+            content: '✅';
+            font-size: 0.8rem;
+        }
+        
+        .calculator-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .calculator-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .trending-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ef4444;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .why-choose {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .why-choose h2 {
+            text-align: center;
+            color: #1f2937;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .why-choose .subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .benefit {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .benefit h3 {
+            color: #1f2937;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .benefit p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .testimonials {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .testimonials h2 {
+            text-align: center;
+            color: #1f2937;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            color: #374151;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .faq-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            color: #1f2937;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .faq-list { max-width: 720px; margin: 0 auto; }
+
+        .faq-item {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            border: 1px solid #f3f4f6;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.02rem;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary::after {
+            content: "+";
+            float: right;
+            font-size: 1.3rem;
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .faq-item[open] summary::after { content: "−"; }
+
+        .faq-item p {
+            color: #6b7280;
+            margin-top: 12px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .calculators-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .viral-features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <a href="/" class="logo">💰 Can I Afford</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/house/">House</a></li>
+                    <li><a href="/car/">Car</a></li>
+                    <li><a href="/wedding/">Wedding</a></li>
+                    <li><a href="/moveout/">Move Out</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/about/">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="hero">
+            <h1>Can I Afford It?</h1>
+            <p class="tagline">Free Financial Calculators That Give You an Honest Answer</p>
+            <p class="subtitle">Enter your income and expenses — find out in seconds if you can afford a house, car, wedding, or your own place. No email required, 100% free.</p>
+            
+            <div class="viral-features">
+                <div class="feature-badge">⚡ Instant Results</div>
+                <div class="feature-badge">🎯 No Email Required</div>
+                <div class="feature-badge">💯 100% Free</div>
+                <div class="feature-badge">🔄 Reverse Calculator Included</div>
+            </div>
+
+            <a href="#calculators" class="hero-cta">🧮 Pick a Calculator — Get Your Answer →</a>
+        </div>
+        
+        <div class="calculators-grid" id="calculators">
+            <div class="calculator-card">
+                <div class="trending-badge">🔥 TRENDING</div>
+                <div class="calculator-icon">🎒</div>
+                <h3>Can I Afford To Move Out?</h3>
+                <p>Ready for independence? Find out if you can afford to live on your own with our comprehensive move-out calculator.</p>
+                <ul class="calculator-features">
+                    <li>Complete living expense analysis</li>
+                    <li>Emergency fund requirements</li>
+                    <li>Location-based cost adjustments</li>
+                    <li>Reverse calculation: income needed</li>
+                </ul>
+                <a href="/moveout/" class="calculator-link">Calculate Move Out Costs →</a>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="calculator-icon">🏠</div>
+                <h3>Can I Afford This House?</h3>
+                <p>Use the 28% rule and comprehensive analysis to determine if you can afford your dream home.</p>
+                <ul class="calculator-features">
+                    <li>28% housing rule compliance</li>
+                    <li>Total monthly housing costs</li>
+                    <li>Down payment analysis</li>
+                    <li>Reverse calculation: affordable price</li>
+                </ul>
+                <a href="/house/" class="calculator-link">Calculate House Affordability →</a>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="calculator-icon">🚗</div>
+                <h3>Can I Afford This Car?</h3>
+                <p>Apply the 20/4/10 rule to determine car affordability including all ownership costs.</p>
+                <ul class="calculator-features">
+                    <li>20/4/10 rule compliance check</li>
+                    <li>Total cost of ownership</li>
+                    <li>Insurance and maintenance costs</li>
+                    <li>Reverse calculation: affordable car</li>
+                </ul>
+                <a href="/car/" class="calculator-link">Calculate Car Affordability →</a>
+            </div>
+            
+            <div class="calculator-card">
+                <div class="calculator-icon">💍</div>
+                <h3>Can I Afford This Wedding?</h3>
+                <p>Plan your dream wedding within budget with detailed cost breakdowns and savings timeline.</p>
+                <ul class="calculator-features">
+                    <li>15% income rule guidance</li>
+                    <li>Guest count impact analysis</li>
+                    <li>Regional cost adjustments</li>
+                    <li>Reverse calculation: affordable budget</li>
+                </ul>
+                <a href="/wedding/" class="calculator-link">Calculate Wedding Budget →</a>
+            </div>
+        </div>
+        
+        <div class="why-choose">
+            <h2>Why Choose Can I Afford?</h2>
+            <p class="subtitle">The most trusted financial calculators on the internet</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>No Email Required</h3>
+                    <p>Get instant results without signing up, creating accounts, or sharing personal information. Your privacy matters to us.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">💯</div>
+                    <h3>100% Free Forever</h3>
+                    <p>All calculators are completely free with no hidden fees, premium features, or subscription requirements.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Reverse Calculations</h3>
+                    <p>Unique feature: Not only "Can I afford this?" but also "What can I afford?" - work backwards from your budget.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">📱</div>
+                    <h3>Mobile Optimized</h3>
+                    <p>Perfect experience on all devices - desktop, tablet, and mobile. Calculate on the go, anywhere, anytime.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Instant Results</h3>
+                    <p>Get comprehensive affordability analysis in seconds. No waiting, no loading screens, just instant insights.</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">🎓</div>
+                    <h3>Expert-Backed Rules</h3>
+                    <p>Based on proven financial rules: 28% housing rule, 20/4/10 car rule, and 15% wedding rule used by financial advisors.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonials">
+            <h2>See the Math In Action</h2>
+            <p class="subtitle" style="text-align:center; margin-bottom: 40px;">Real examples of how each rule plays out — no signup required to try it with your own numbers</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">On a <strong>$65,000</strong> salary, the 28% rule caps your monthly housing payment around <strong>$1,517</strong>. A $280,000 mortgage at current rates lands right at that edge — the calculator flags it as "tight" rather than "affordable," and shows what price would actually leave breathing room.</p>
+                    <p class="testimonial-author">— House Calculator example · <a href="/house/" style="color:#667eea; font-weight:600; text-decoration:none;">Try it →</a></p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">Moving out on <strong>$3,200/month</strong> take-home? The 30% rent rule puts your ceiling near <strong>$960</strong>. Once you add utilities, groceries, and a starter emergency fund, the calculator shows the realistic number most listings don't mention.</p>
+                    <p class="testimonial-author">— Move Out Calculator example · <a href="/moveout/" style="color:#667eea; font-weight:600; text-decoration:none;">Try it →</a></p>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">A <strong>$35,000</strong> car on a <strong>$70,000</strong> salary fails the 20/4/10 rule the moment insurance and maintenance are added — even with 20% down. The reverse calculator shows exactly what price fits instead.</p>
+                    <p class="testimonial-author">— Car Calculator example · <a href="/car/" style="color:#667eea; font-weight:600; text-decoration:none;">Try it →</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What financial calculators do you offer?</summary>
+                    <p>We offer free calculators for house affordability, car affordability, wedding budgeting, and moving out costs. All calculators include reverse calculations to help you determine what you can afford.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Are these calculators really free?</summary>
+                    <p>Yes. All calculators are 100% free, with no hidden fees or premium tiers. No email required, no account required.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How accurate are your affordability calculations?</summary>
+                    <p>Our calculators use industry-standard financial rules like the 28% housing rule, 20/4/10 car rule, and 30% rent rule. They provide reliable estimates but should be used alongside professional financial advice for major decisions.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to create an account?</summary>
+                    <p>No. There's no sign-up, login, or account of any kind. Every calculator works the moment you land on the page.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Is my financial information stored anywhere?</summary>
+                    <p>No. Your income, expenses, and results are calculated entirely in your browser and are never sent to or stored on our servers. See our <a href="/privacy/">Privacy Policy</a> for details.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>Free financial calculators to help you make confident money decisions — no email, no cost, no catch.</p>
+            <p>Built by <a href="/about/">Kelon Nyanguno</a> · <a href="/blog/">Financial Blog</a> · <a href="/about/">About</a></p>
+            <p>For partnerships or support: <a href="mailto:kelonwaithera@gmail.com">kelonwaithera@gmail.com</a></p>
+            <p>© 2026 Can I Afford. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
