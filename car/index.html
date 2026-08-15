@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X606JS1X48"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X606JS1X48');
+</script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find out if you can afford a car based on your income using the 20/4/10 rule. This free calculator checks monthly payments, insurance, and total ownership costs instantly.">
+    <meta name="keywords" content="car affordability calculator, can i afford this car, how much car can i afford calculator, how much car can i afford calculator based on income, car affordability calculator based on income, 20/4/10 rule car">
+    <title>Can I Afford This Car? Free Calculator Based on Income and the 20/4/10 Rule</title>
+    
+    <!-- Open Graph Meta Tags -->
+<meta property="og:title" content="🚗 Can I Actually Afford This Car? Find Out in 60 Seconds">
+<meta property="og:description" content="Stop guessing. Plug in your income & car price and get an honest YES, NO, or MAYBE — plus your exact monthly costs. Free, instant, no email needed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://caniafford.online/car/">
+<meta property="og:image" content="https://caniafford.online/car/car-calculator-preview.png">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🚗 Can I Actually Afford This Car? Find Out in 60 Seconds">
+<meta name="twitter:description" content="Stop guessing. Plug in your income & car price and get an honest YES, NO, or MAYBE — plus your exact monthly costs. Free, instant, no email needed.">
+<meta name="twitter:image" content="https://caniafford.online/car/car-calculator-preview.png">
+    
+    <!-- Favicon - Multiple sizes for better compatibility -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://caniafford.online/car/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Can I Afford This Car? Calculator",
+        "description": "Free car affordability calculator. Find out if you can afford that car instantly - no email required.",
+        "url": "https://caniafford.online/car/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Car affordability calculation",
+            "Auto loan payment estimation",
+            "Total cost of ownership analysis",
+            "Insurance cost estimation",
+            "Credit score based interest rates",
+            "20/4/10 rule analysis",
+            "No email required",
+            "Mobile friendly"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "Can I Afford This"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .calculator-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .calculator-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            background: #f1f5f9;
+            padding: 4px;
+            border-radius: 12px;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #64748b;
+        }
+        
+        .tab-button.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 1rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .optional {
+            font-weight: 400;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .calculate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .result {
+            margin-top: 32px;
+            padding: 24px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result.success {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            color: #065f46;
+        }
+        
+        .result.warning {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            color: #92400e;
+        }
+        
+        .result.danger {
+            background: #fef2f2;
+            border: 2px solid #ef4444;
+            color: #991b1b;
+        }
+        
+        .result-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .payment-breakdown {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        
+        .payment-breakdown h4 {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .payment-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+        
+        .payment-item.total {
+            border-top: 2px solid #e5e7eb;
+            padding-top: 12px;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        
+        .affordability-meter {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .meter-label {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+        
+        .meter-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .meter-fill.good {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        
+        .meter-fill.warning {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+        
+        .meter-fill.danger {
+            background: linear-gradient(90deg, #ef4444, #f87171);
+        }
+        
+        .meter-percentage {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .share-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .share-btn.twitter:hover {
+            background: #0d8bd9;
+        }
+        
+        .share-btn.facebook {
+            background: #4267b2;
+        }
+        
+        .share-btn.facebook:hover {
+            background: #365899;
+        }
+        
+        .info-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .info-section h2 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .info-section p {
+            margin-bottom: 16px;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .calculator-card {
+                padding: 24px;
+            }
+            
+            .share-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* ===== ROADMAP STYLES ===== */
+        .roadmap { margin-top: 24px; border-top: 2px solid rgba(0,0,0,0.08); padding-top: 20px; }
+        .roadmap-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; color: #1f2937; text-transform: uppercase; letter-spacing: 0.05em; }
+        .roadmap-steps { display: flex; flex-direction: column; gap: 12px; }
+        .roadmap-step { display: flex; align-items: flex-start; gap: 14px; background: rgba(255,255,255,0.6); border-radius: 10px; padding: 14px; }
+        .step-badge { min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: white; flex-shrink: 0; }
+        .step-badge.done { background: #10b981; }
+        .step-badge.warn { background: #f59e0b; }
+        .step-badge.bad { background: #ef4444; }
+        .step-content { flex: 1; }
+        .step-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+        .step-label.pass { color: #059669; }
+        .step-label.fail { color: #dc2626; }
+        .step-label.warn { color: #d97706; }
+        .step-desc { font-size: 0.88rem; color: #374151; margin: 0; }
+        .step-action { font-size: 0.83rem; color: #6b7280; margin-top: 4px; font-style: italic; }
+        .savings-progress { margin-top: 20px; padding: 16px; background: rgba(255,255,255,0.6); border-radius: 10px; }
+        .savings-progress h4 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #374151; margin-bottom: 12px; }
+        .progress-row { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 6px; color: #4b5563; }
+        .progress-bar-wrap { background: #e5e7eb; border-radius: 6px; height: 8px; margin-bottom: 12px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s ease; }
+        .timeline-callout { margin-top: 12px; padding: 12px 16px; background: #eff6ff; border-left: 4px solid #3b82f6; border-radius: 0 8px 8px 0; font-size: 0.88rem; color: #1e40af; font-weight: 500; }
+        @media (max-width: 600px) {
+            .nav-links { gap: 6px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { padding: 6px 10px; font-size: 0.8rem; }
+        }
+
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much car can I afford based on my income?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 20/4/10 rule is the most widely used guideline: put at least 20% down, finance for no more than 4 years, and keep all vehicle costs (payment + insurance + fuel) under 10% of your gross monthly income. If you earn $5,000/month, your total monthly car costs should stay below $500."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the 20/4/10 rule for buying a car?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 20/4/10 rule means: make a down payment of at least 20% of the car's price, take a loan term of no more than 4 years, and ensure your total monthly car expenses (loan payment, insurance, and fuel) stay under 10% of your gross monthly income. This rule helps you avoid being car-poor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What monthly car expenses should I budget for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your monthly car budget should include: the loan payment, car insurance ($80–$200/month depending on age and location), fuel ($80–$200/month), and a maintenance reserve of about $50–$100/month for oil changes, tires, and repairs. Many people only calculate the loan payment and are surprised by the full cost of ownership."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I afford a car with a $40,000 salary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On a $40,000 annual salary (about $3,333/month gross), the 10% rule means your total car expenses should stay under $333/month. With 20% down on a 4-year loan at average interest rates, you could comfortably afford a car in the $12,000–$18,000 range. Stretching to a more expensive car risks putting your finances under pressure."
+                }
+            }
+        ]
+    }
+    </script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://caniafford.online/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Car Calculator"
+        }
+    ]
+}
+</script>
+<style>
+.breadcrumbs {
+    max-width: 100%;
+    margin: 0 0 18px 0;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.85);
+}
+.breadcrumbs a { color: rgba(255,255,255,0.95); text-decoration: none; font-weight: 600; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs .crumb-sep { margin: 0 6px; color: rgba(255,255,255,0.5); }
+.breadcrumbs .crumb-current { color: rgba(255,255,255,0.7); }
+.sticky-mobile-cta { display: none; }
+@media (max-width: 640px) {
+    .sticky-mobile-cta {
+        display: flex;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 9998;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+        padding: 12px 16px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    }
+    .sticky-mobile-cta a {
+        flex: 1;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+    body { padding-bottom: 62px; }
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="header-nav">
+            <div class="nav-links">
+                <a href="../">🏠 Home</a>
+                <a href="../house/">🏠 House Calculator</a>
+                <a href="../wedding/">💍 Wedding Calculator</a>
+                <a href="../moveout/">📦 Move Out Calculator</a>
+                <a href="../blog/">📝 Blog</a>
+            </div>
+        </nav>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span class="crumb-sep">&rsaquo;</span> <span class="crumb-current" aria-current="page">Car Calculator</span></nav>
+
+
+        <div class="hero">
+            <h1>Can I Afford This Car? 🚗</h1>
+            <p>Get an instant, free answer using proven affordability rules</p>
+            <p class="subtitle">No email required • Mobile friendly • Completely free</p>
+        </div>
+
+        <div class="calculator-card">
+            <div class="calculator-tabs">
+                <button class="tab-button active" onclick="switchTab('basic')">Basic Calculator</button>
+                <button class="tab-button" onclick="switchTab('advanced')">Advanced Analysis</button>
+                <button class="tab-button" onclick="switchTab('reverse')">What Car Can I Afford?</button>
+            </div>
+
+            <div id="basic-tab" class="tab-content active">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="carPrice">Car Price ($)</label>
+                        <input type="number" id="carPrice" placeholder="25000">
+                    </div>
+                    <div class="form-group">
+                        <label for="downPayment">Down Payment ($)</label>
+                        <input type="number" id="downPayment" placeholder="5000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="annualIncome">Annual Income ($)</label>
+                        <input type="number" id="annualIncome" placeholder="60000">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthlyDebt">Monthly Debt Payments ($) <span class="optional">(optional)</span></label>
+                        <input type="number" id="monthlyDebt" placeholder="500">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="creditScore">Credit Score Range</label>
+                        <select id="creditScore">
+                            <option value="750">Excellent (750+)</option>
+                            <option value="725" selected>Good (700-749)</option>
+                            <option value="675">Fair (650-699)</option>
+                            <option value="625">Poor (600-649)</option>
+                            <option value="550">Bad (Below 600)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="loanTerm">Loan Term</label>
+                        <select id="loanTerm">
+                            <option value="36">36 months</option>
+                            <option value="48" selected>48 months</option>
+                            <option value="60">60 months</option>
+                            <option value="72">72 months</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="monthlyInsurance">Monthly Insurance ($) <span class="optional">(optional)</span></label>
+                        <input type="number" id="monthlyInsurance" placeholder="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="tradeInValue">Trade-in Value ($) <span class="optional">(optional)</span></label>
+                        <input type="number" id="tradeInValue" placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <div id="advanced-tab" class="tab-content">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="advCarPrice">Car Price ($)</label>
+                        <input type="number" id="advCarPrice" placeholder="25000">
+                    </div>
+                    <div class="form-group">
+                        <label for="advDownPayment">Down Payment ($)</label>
+                        <input type="number" id="advDownPayment" placeholder="5000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="advAnnualIncome">Annual Income ($)</label>
+                        <input type="number" id="advAnnualIncome" placeholder="60000">
+                    </div>
+                    <div class="form-group">
+                        <label for="advMonthlyDebt">Monthly Debt Payments ($)</label>
+                        <input type="number" id="advMonthlyDebt" placeholder="500">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="advCreditScore">Credit Score Range</label>
+                        <select id="advCreditScore">
+                            <option value="750">Excellent (750+)</option>
+                            <option value="725" selected>Good (700-749)</option>
+                            <option value="675">Fair (650-699)</option>
+                            <option value="625">Poor (600-649)</option>
+                            <option value="550">Bad (Below 600)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="advLoanTerm">Loan Term</label>
+                        <select id="advLoanTerm">
+                            <option value="36">36 months</option>
+                            <option value="48" selected>48 months</option>
+                            <option value="60">60 months</option>
+                            <option value="72">72 months</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="advMonthlyInsurance">Monthly Insurance ($)</label>
+                        <input type="number" id="advMonthlyInsurance" placeholder="150">
+                    </div>
+                    <div class="form-group">
+                        <label for="advTradeInValue">Trade-in Value ($)</label>
+                        <input type="number" id="advTradeInValue" placeholder="0">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="monthlyFuel">Monthly Fuel Cost ($)</label>
+                        <input type="number" id="monthlyFuel" placeholder="200">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthlyMaintenance">Monthly Maintenance ($)</label>
+                        <input type="number" id="monthlyMaintenance" placeholder="100">
+                    </div>
+                </div>
+            </div>
+
+            <div id="reverse-tab" class="tab-content">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reverseAnnualIncome">Annual Income ($)</label>
+                        <input type="number" id="reverseAnnualIncome" placeholder="60000">
+                    </div>
+                    <div class="form-group">
+                        <label for="reverseDownPayment">Down Payment ($)</label>
+                        <input type="number" id="reverseDownPayment" placeholder="5000">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reverseMonthlyDebt">Monthly Debt Payments ($)</label>
+                        <input type="number" id="reverseMonthlyDebt" placeholder="500">
+                    </div>
+                    <div class="form-group">
+                        <label for="reverseCreditScore">Credit Score Range</label>
+                        <select id="reverseCreditScore">
+                            <option value="750">Excellent (750+)</option>
+                            <option value="725" selected>Good (700-749)</option>
+                            <option value="675">Fair (650-699)</option>
+                            <option value="625">Poor (600-649)</option>
+                            <option value="550">Bad (Below 600)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reverseLoanTerm">Loan Term</label>
+                        <select id="reverseLoanTerm">
+                            <option value="36">36 months</option>
+                            <option value="48" selected>48 months</option>
+                            <option value="60">60 months</option>
+                            <option value="72">72 months</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reverseMonthlyInsurance">Monthly Insurance ($)</label>
+                        <input type="number" id="reverseMonthlyInsurance" placeholder="150">
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateAffordability()">Calculate Car Affordability</button>
+
+            <div id="result" class="result"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>How Much Car Can I Afford Based on My Income?</h2>
+            <p>The most reliable way to figure out how much car you can afford is to use the <strong>20/4/10 rule</strong>: put at least 20% down, keep your loan term to 4 years or less, and make sure your total monthly car costs — payment, insurance, and fuel — stay under 10% of your gross monthly income. If you earn $5,000 a month before taxes, all car-related expenses combined should stay below $500/month.</p>
+
+            <p>Most people make the mistake of calculating only the monthly loan payment. The real cost of owning a car includes insurance ($80–$200/month), fuel ($80–$200/month depending on your commute), and a maintenance reserve for oil changes, tires, and unexpected repairs ($50–$100/month). That's often $300–$500 on top of your loan payment.</p>
+
+            <h2>What the 20/4/10 Rule Actually Means</h2>
+            <p>The <strong>20% down payment</strong> requirement ensures you start with positive equity in the car, protecting you if its value drops quickly — which most vehicles do in the first year. The <strong>4-year loan term</strong> keeps your interest costs manageable; longer loans (6–7 years) dramatically increase the total you pay. The <strong>10% of income</strong> cap on total transportation costs ensures your car doesn't crowd out other financial goals like saving, investing, or building an emergency fund.</p>
+
+            <h2>How Much Car Can I Afford? Real Examples by Salary</h2>
+            <ul style="margin: 12px 0 16px 24px; color: #374151; line-height: 2.2;">
+                <li><strong>$30,000/year ($2,500/month)</strong> — Total car budget: ~$250/month. Affordable car range: $8,000–$12,000 with 20% down</li>
+                <li><strong>$50,000/year ($4,167/month)</strong> — Total car budget: ~$417/month. Affordable car range: $15,000–$22,000 with 20% down</li>
+                <li><strong>$75,000/year ($6,250/month)</strong> — Total car budget: ~$625/month. Affordable car range: $22,000–$30,000 with 20% down</li>
+                <li><strong>$100,000/year ($8,333/month)</strong> — Total car budget: ~$833/month. Affordable car range: $30,000–$42,000 with 20% down</li>
+            </ul>
+            <p>These ranges assume average insurance rates, moderate fuel costs, and a 4-year loan. Use the calculator above to get a precise number based on your actual income and local insurance estimates.</p>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>How much car can I afford on a $40,000 salary?</h3>
+            <p>On $40,000/year (roughly $3,333/month gross), the 10% rule means all car costs should stay under $333/month. After subtracting insurance (~$120) and fuel (~$80), you have around $133/month for a loan payment. With 20% down on a 4-year loan, that works out to a car in the $12,000–$16,000 range. A new car at this income level is generally a financial stretch unless you have a very large down payment.</p>
+
+            <h3>Is a 72-month car loan ever a good idea?</h3>
+            <p>Rarely. A 72-month (6-year) loan lowers your monthly payment but significantly increases total interest paid and extends the period where you owe more than the car is worth. Most financial advisors recommend keeping loan terms to 48 months or less. If you need a 72-month loan to afford the monthly payment, the car is likely outside your budget.</p>
+
+            <h3>Should I buy new or used?</h3>
+            <p>From a pure affordability standpoint, a 2–4 year old used car is almost always the better financial decision. New cars lose 15–25% of their value in the first year. A certified pre-owned vehicle with a warranty gives you most of the reliability benefit of a new car at a significantly lower price — and lower monthly payments, insurance costs, and total interest paid.</p>
+
+            <p style="margin-top: 24px; font-size: 0.9rem; color: #6b7280;"><em>This calculator is provided for informational purposes only and does not constitute financial advice. Interest rates and insurance costs vary — consult a financial advisor or lender for personalised guidance.</em></p>
+        </div>
+
+        <div class="info-section" style="margin-top: 24px;">
+            <h2>More Free Affordability Calculators</h2>
+            <ul style="margin: 12px 0 0 24px; color: #374151; line-height: 2.2;">
+                <li><a href="/moveout/" style="color: #667eea; font-weight: 500;">Can I Afford to Move Out?</a> — Full budget breakdown using the 30% rent rule</li>
+                <li><a href="/house/" style="color: #667eea; font-weight: 500;">Can I Afford This House?</a> — Mortgage affordability with the 28% housing rule</li>
+                <li><a href="/wedding/" style="color: #667eea; font-weight: 500;">Can I Afford This Wedding?</a> — Plan your wedding without going into debt</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab and activate button
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+            
+            // Clear previous results
+            document.getElementById('result').style.display = 'none';
+        }
+
+        function getInterestRate(creditScore) {
+            if (creditScore >= 750) return 4.5;
+            if (creditScore >= 700) return 6.0;
+            if (creditScore >= 650) return 8.0;
+            if (creditScore >= 600) return 12.0;
+            return 15.0;
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+
+        function calculateAffordability() {
+            const activeTab = document.querySelector('.tab-content.active').id;
+            
+            if (activeTab === 'basic-tab') {
+                calculateBasic();
+            } else if (activeTab === 'advanced-tab') {
+                calculateAdvanced();
+            } else {
+                calculateReverse();
+            }
+        }
+
+        function calculateBasic() {
+            const carPrice = parseFloat(document.getElementById('carPrice').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const annualIncome = parseFloat(document.getElementById('annualIncome').value);
+            const monthlyDebt = parseFloat(document.getElementById('monthlyDebt').value) || 0;
+            const creditScore = parseFloat(document.getElementById('creditScore').value);
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value);
+            const monthlyInsurance = parseFloat(document.getElementById('monthlyInsurance').value) || 150;
+            const tradeInValue = parseFloat(document.getElementById('tradeInValue').value) || 0;
+
+            if (!carPrice || !downPayment || !annualIncome || !creditScore) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const loanAmount = carPrice - downPayment - tradeInValue;
+            const interestRate = getInterestRate(creditScore);
+            const monthlyRate = interestRate / 100 / 12;
+            const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) / (Math.pow(1 + monthlyRate, loanTerm) - 1);
+            const totalMonthlyCarCost = monthlyPayment + monthlyInsurance;
+            const monthlyIncome = annualIncome / 12;
+            const carPaymentRatio = (totalMonthlyCarCost / monthlyIncome) * 100;
+            const totalDebtRatio = ((monthlyDebt + totalMonthlyCarCost) / monthlyIncome) * 100;
+            const downPaymentPct = (downPayment / carPrice) * 100;
+            const totalInterest = (monthlyPayment * loanTerm) - loanAmount;
+            const maxAffordableMonthly = monthlyIncome * 0.10;
+            const maxAffordablePrice = Math.max(0, ((maxAffordableMonthly - monthlyInsurance) *
+                (Math.pow(1 + monthlyRate, loanTerm) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, loanTerm))) + downPayment);
+
+            const ruleOk = carPaymentRatio <= 10;
+            const ruleTight = carPaymentRatio <= 15;
+            const downOk = downPaymentPct >= 20;
+            const downTight = downPaymentPct >= 10;
+            const termOk = loanTerm <= 48;
+            const debtOk = totalDebtRatio <= 36;
+
+            let resultClass, resultIcon, resultTitle, resultMessage;
+            if (ruleOk && downOk && termOk && debtOk) {
+                resultClass = 'success'; resultIcon = '\u2705';
+                resultTitle = 'You can afford this car';
+                resultMessage = 'Your total monthly car cost of ' + formatCurrency(totalMonthlyCarCost) + ' is ' + carPaymentRatio.toFixed(1) + '% of income — under the 10% guideline. The 20/4/10 rule checks out.';
+            } else if (ruleTight && debtOk) {
+                resultClass = 'warning'; resultIcon = '\u26A0\uFE0F';
+                resultTitle = 'You can afford it, but it is a stretch';
+                resultMessage = 'Your monthly car cost of ' + formatCurrency(totalMonthlyCarCost) + ' is ' + carPaymentRatio.toFixed(1) + '% of income — above the 10% rule. You will have less room for savings and emergencies.';
+            } else {
+                resultClass = 'danger'; resultIcon = '\u274C';
+                resultTitle = 'This car is too expensive for your income';
+                resultMessage = 'At ' + carPaymentRatio.toFixed(1) + '% of monthly income, this car will strain your finances. The safe maximum for your salary is ' + formatCurrency(maxAffordablePrice) + '.';
+            }
+
+            const checks = [
+                {
+                    badge: ruleOk ? 'done' : ruleTight ? 'warn' : 'bad',
+                    lc: ruleOk ? 'pass' : ruleTight ? 'warn' : 'fail',
+                    lt: ruleOk ? 'PASS' : ruleTight ? 'BORDERLINE' : 'FAIL',
+                    title: '10% Income Rule',
+                    desc: 'Monthly car cost ' + formatCurrency(totalMonthlyCarCost) + ' = ' + carPaymentRatio.toFixed(1) + '% of income. Target: under 10%.',
+                    action: !ruleOk ? 'To stay under 10%, your total monthly car cost should be under ' + formatCurrency(maxAffordableMonthly) + '. That means a car priced around ' + formatCurrency(maxAffordablePrice) + '.' : null
+                },
+                {
+                    badge: downOk ? 'done' : downTight ? 'warn' : 'bad',
+                    lc: downOk ? 'pass' : downTight ? 'warn' : 'fail',
+                    lt: downOk ? 'PASS' : downTight ? 'LOW' : 'FAIL',
+                    title: '20% Down Payment',
+                    desc: 'Your down payment is ' + formatCurrency(downPayment) + ' (' + downPaymentPct.toFixed(1) + '% of car price). Recommended: at least 20%.',
+                    action: !downOk ? 'To avoid negative equity put down at least ' + formatCurrency(carPrice * 0.2) + '. You are currently ' + formatCurrency(Math.max(0, carPrice * 0.2 - downPayment)) + ' short.' : null
+                },
+                {
+                    badge: termOk ? 'done' : 'warn',
+                    lc: termOk ? 'pass' : 'warn',
+                    lt: termOk ? 'PASS' : 'CAUTION',
+                    title: 'Loan Term (max 48 months)',
+                    desc: 'Your loan term is ' + loanTerm + ' months. The 20/4/10 rule recommends 48 months or less.',
+                    action: !termOk ? 'Over ' + loanTerm + ' months you will pay ' + formatCurrency(totalInterest) + ' in interest. A shorter term saves money significantly.' : null
+                },
+                {
+                    badge: debtOk ? 'done' : 'bad',
+                    lc: debtOk ? 'pass' : 'fail',
+                    lt: debtOk ? 'PASS' : 'FAIL',
+                    title: 'Total Debt Load',
+                    desc: 'All debt (car + existing) = ' + totalDebtRatio.toFixed(1) + '% of income. Recommended: under 36%.',
+                    action: !debtOk ? 'Your existing debt of ' + formatCurrency(monthlyDebt) + '/month plus this car pushes your debt ratio too high. Pay down existing debt first or choose a less expensive car.' : null
+                }
+            ];
+
+            const stepsHtml = checks.map(function(c) {
+                return '<div class="roadmap-step">' +
+                    '<div class="step-badge ' + c.badge + '">' + (c.badge === 'done' ? '\u2713' : c.badge === 'warn' ? '~' : '\u2717') + '</div>' +
+                    '<div class="step-content">' +
+                    '<div class="step-label ' + c.lc + '">' + c.lt + ' \u2014 ' + c.title + '</div>' +
+                    '<p class="step-desc">' + c.desc + '</p>' +
+                    (c.action ? '<p class="step-action">\u2192 ' + c.action + '</p>' : '') +
+                    '</div></div>';
+            }).join('');
+
+            const savingsPct = Math.min(100, (downPayment / (carPrice * 0.2)) * 100);
+            const barColor = downPaymentPct >= 20 ? '#10b981' : downPaymentPct >= 10 ? '#f59e0b' : '#ef4444';
+
+            const breakdown =
+                '<div class="payment-breakdown">' +
+                '<h4>Monthly Car Cost Breakdown:</h4>' +
+                '<div class="payment-item"><span>Loan Payment:</span><span>' + formatCurrency(monthlyPayment) + '</span></div>' +
+                '<div class="payment-item"><span>Insurance:</span><span>' + formatCurrency(monthlyInsurance) + '</span></div>' +
+                '<div class="payment-item total"><span>Total Monthly Cost:</span><span>' + formatCurrency(totalMonthlyCarCost) + '</span></div>' +
+                '</div>' +
+                '<div class="savings-progress">' +
+                '<h4>Down Payment Progress (target: 20%)</h4>' +
+                '<div class="progress-row"><span>' + formatCurrency(downPayment) + ' saved</span><span>Target: ' + formatCurrency(carPrice * 0.2) + '</span></div>' +
+                '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + savingsPct + '%;background:' + barColor + '"></div></div>' +
+                '<div class="timeline-callout">Total interest over ' + loanTerm + ' months: <strong>' + formatCurrency(Math.max(0, totalInterest)) + '</strong>' + (loanTerm > 48 ? ' — a shorter loan term reduces this.' : '.') + '</div>' +
+                '</div>' +
+                '<div class="roadmap"><div class="roadmap-title">20/4/10 Rule Checklist</div><div class="roadmap-steps">' + stepsHtml + '</div></div>' +
+                '<div class="affordability-meter" style="margin-top:20px">' +
+                '<div class="meter-label">Car Cost as % of Income (target: under 10%)</div>' +
+                '<div class="meter-bar"><div class="meter-fill ' + (carPaymentRatio <= 10 ? 'good' : carPaymentRatio <= 15 ? 'warning' : 'danger') + '" style="width:' + Math.min(carPaymentRatio * 5, 100) + '%"><span class="meter-percentage">' + carPaymentRatio.toFixed(1) + '%</span></div></div>' +
+                '</div>' +
+                '<div class="share-buttons">' +
+                '<button class="share-btn" onclick="shareResult('basic')">&#x1F4CB; Copy Result</button>' +
+                '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent('I checked if I can afford a car — check yours: https://caniafford.online/car/') + '" target="_blank" class="share-btn twitter">&#x1F426; Share on Twitter</a>' +
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://caniafford.online/car/') + '" target="_blank" class="share-btn facebook">&#x1F4D8; Share on Facebook</a>' +
+                '</div>';
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function calculateAdvanced() {
+            const carPrice = parseFloat(document.getElementById('advCarPrice').value);
+            const downPayment = parseFloat(document.getElementById('advDownPayment').value);
+            const annualIncome = parseFloat(document.getElementById('advAnnualIncome').value);
+            const monthlyDebt = parseFloat(document.getElementById('advMonthlyDebt').value) || 0;
+            const creditScore = parseFloat(document.getElementById('advCreditScore').value);
+            const loanTerm = parseFloat(document.getElementById('advLoanTerm').value);
+            const monthlyInsurance = parseFloat(document.getElementById('advMonthlyInsurance').value) || 150;
+            const tradeInValue = parseFloat(document.getElementById('advTradeInValue').value) || 0;
+            const monthlyFuel = parseFloat(document.getElementById('monthlyFuel').value) || 200;
+            const monthlyMaintenance = parseFloat(document.getElementById('monthlyMaintenance').value) || 100;
+
+            if (!carPrice || !downPayment || !annualIncome || !creditScore) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const loanAmount = carPrice - downPayment - tradeInValue;
+            const interestRate = getInterestRate(creditScore);
+            const monthlyRate = interestRate / 100 / 12;
+            
+            // Calculate monthly car payment
+            const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) / (Math.pow(1 + monthlyRate, loanTerm) - 1);
+            const totalMonthlyCarCost = monthlyPayment + monthlyInsurance + monthlyFuel + monthlyMaintenance;
+            
+            const monthlyIncome = annualIncome / 12;
+            const affordableCarPayment = monthlyIncome * 0.15; // 15% for total transportation
+            const totalDebtRatio = ((monthlyDebt + totalMonthlyCarCost) / monthlyIncome) * 100;
+            const carPaymentRatio = (totalMonthlyCarCost / monthlyIncome) * 100;
+            
+            let resultClass, resultIcon, resultTitle, resultMessage;
+            
+            if (totalMonthlyCarCost <= affordableCarPayment && totalDebtRatio <= 36) {
+                resultClass = 'success';
+                resultIcon = '✅';
+                resultTitle = 'YES, you can afford this car!';
+                resultMessage = `Your total monthly transportation costs of ${formatCurrency(totalMonthlyCarCost)} are ${carPaymentRatio.toFixed(1)}% of your income, which is within safe guidelines.`;
+            } else if (carPaymentRatio <= 20 && totalDebtRatio <= 40) {
+                resultClass = 'warning';
+                resultIcon = '⚠️';
+                resultTitle = 'MAYBE - This car is stretching your budget';
+                resultMessage = `Your total monthly transportation costs of ${formatCurrency(totalMonthlyCarCost)} are ${carPaymentRatio.toFixed(1)}% of your income, which exceeds recommended guidelines but might be manageable.`;
+            } else {
+                resultClass = 'danger';
+                resultIcon = '❌';
+                resultTitle = 'NO, this car is too expensive';
+                resultMessage = `Your total monthly transportation costs of ${formatCurrency(totalMonthlyCarCost)} are ${carPaymentRatio.toFixed(1)}% of your income, which significantly exceeds safe affordability guidelines.`;
+            }
+
+            const breakdown = `
+                <div class="payment-breakdown">
+                    <h4>Total Monthly Transportation Costs:</h4>
+                    <div class="payment-item">
+                        <span>Car Payment:</span>
+                        <span>${formatCurrency(monthlyPayment)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Insurance:</span>
+                        <span>${formatCurrency(monthlyInsurance)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Fuel:</span>
+                        <span>${formatCurrency(monthlyFuel)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Maintenance:</span>
+                        <span>${formatCurrency(monthlyMaintenance)}</span>
+                    </div>
+                    <div class="payment-item total">
+                        <span>Total Monthly Cost:</span>
+                        <span>${formatCurrency(totalMonthlyCarCost)}</span>
+                    </div>
+                </div>
+                
+                <div class="affordability-meter">
+                    <div class="meter-label">Transportation Costs as % of Income</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill ${carPaymentRatio <= 15 ? 'good' : carPaymentRatio <= 20 ? 'warning' : 'danger'}" style="width: ${Math.min(carPaymentRatio, 100)}%">
+                            <span class="meter-percentage">${carPaymentRatio.toFixed(1)}%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('advanced')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I analyzed the total cost of owning a ${formatCurrency(carPrice)} car including all expenses! ${resultTitle} Check yours: https://caniafford.online/car/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/car/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function calculateReverse() {
+            const annualIncome = parseFloat(document.getElementById('reverseAnnualIncome').value);
+            const downPayment = parseFloat(document.getElementById('reverseDownPayment').value);
+            const monthlyDebt = parseFloat(document.getElementById('reverseMonthlyDebt').value) || 0;
+            const creditScore = parseFloat(document.getElementById('reverseCreditScore').value);
+            const loanTerm = parseFloat(document.getElementById('reverseLoanTerm').value);
+            const monthlyInsurance = parseFloat(document.getElementById('reverseMonthlyInsurance').value) || 150;
+
+            if (!annualIncome || !downPayment || !creditScore) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const monthlyIncome = annualIncome / 12;
+            const affordableCarPayment = (monthlyIncome * 0.10) - monthlyInsurance; // 10% rule minus insurance
+            const interestRate = getInterestRate(creditScore);
+            const monthlyRate = interestRate / 100 / 12;
+            
+            // Calculate maximum loan amount
+            const maxLoanAmount = affordableCarPayment * (Math.pow(1 + monthlyRate, loanTerm) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, loanTerm));
+            const maxCarPrice = maxLoanAmount + downPayment;
+            
+            const totalMonthlyCarCost = affordableCarPayment + monthlyInsurance;
+
+            const resultClass = 'success';
+            const resultIcon = '🚗';
+            const resultTitle = `You can afford a car up to ${formatCurrency(maxCarPrice)}`;
+            const resultMessage = `Based on your income of ${formatCurrency(annualIncome)} and the 10% rule, your maximum affordable monthly car payment is ${formatCurrency(affordableCarPayment)}.`;
+
+            const breakdown = `
+                <div class="payment-breakdown">
+                    <h4>Maximum Monthly Car Budget:</h4>
+                    <div class="payment-item">
+                        <span>Car Payment:</span>
+                        <span>${formatCurrency(affordableCarPayment)}</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Insurance:</span>
+                        <span>${formatCurrency(monthlyInsurance)}</span>
+                    </div>
+                    <div class="payment-item total">
+                        <span>Total Monthly Car Cost:</span>
+                        <span>${formatCurrency(totalMonthlyCarCost)}</span>
+                    </div>
+                </div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareResult('reverse')">📋 Copy Result</button>
+                    <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`I can afford a car up to ${formatCurrency(maxCarPrice)} based on my income! Find out what you can afford: https://caniafford.online/car/`)}" target="_blank" class="share-btn twitter">🐦 Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://caniafford.online/car/')}" target="_blank" class="share-btn facebook">📘 Share on Facebook</a>
+                </div>
+            `;
+
+            displayResult(resultClass, resultIcon, resultTitle, resultMessage + breakdown);
+        }
+
+        function displayResult(resultClass, resultIcon, resultTitle, resultMessage) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = `result ${resultClass}`;
+            resultDiv.innerHTML = `
+                <span class="result-icon">${resultIcon}</span>
+                <div class="result-title">${resultTitle}</div>
+                <div class="result-message">${resultMessage}</div>
+            `;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+            window.CALC_RESULT = resultClass;
+            if (typeof window.triggerFeedbackPopup === 'function') { window.triggerFeedbackPopup(); }
+        }
+
+        function shareResult(type) {
+            const resultTitle = document.querySelector('.result-title').textContent;
+            const shareText = `${resultTitle}\n\nCalculated using the free car affordability calculator at https://caniafford.online/car/`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Car Affordability Result',
+                    text: shareText,
+                    url: 'https://caniafford.online/car/'
+                });
+            } else {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    alert('Result copied to clipboard!');
+                });
+            }
+        }
+    </script>
+
+<style>
+.feedback-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  display: none; align-items: center; justify-content: center;
+  z-index: 9999; padding: 1rem;
+}
+.feedback-overlay.show { display: flex; }
+.feedback-card {
+  background: #fff; border-radius: 12px; padding: 1.5rem;
+  max-width: 380px; width: 100%; position: relative;
+  font-family: inherit; box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+.feedback-close {
+  position: absolute; top: 12px; right: 12px; width: 28px; height: 28px;
+  border: none; background: transparent; cursor: pointer; font-size: 18px;
+  display: flex; align-items: center; justify-content: center; border-radius: 50%;
+}
+.feedback-close:hover { background: #f1f1f1; }
+.feedback-title { font-size: 16px; font-weight: 600; margin: 0 0 4px; color: #111; }
+.feedback-sub { font-size: 13px; color: #666; margin: 0 0 1.25rem; }
+.feedback-option {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 10px 12px; text-align: left; border: 1px solid #ddd;
+  border-radius: 8px; background: #fff; cursor: pointer; margin-bottom: 8px;
+  font-size: 14px; transition: background 0.15s; color: #111;
+}
+.feedback-option:hover { background: #f7f7f7; }
+.feedback-option.selected { border-color: #6a5acd; background: #f3f1ff; }
+.feedback-textarea {
+  width: 100%; min-height: 60px; resize: none; margin: 8px 0 12px;
+  padding: 8px; border: 1px solid #ddd; border-radius: 8px; font-size: 13px;
+  font-family: inherit; box-sizing: border-box;
+}
+.feedback-submit {
+  width: 100%; background: #6a5acd; color: #fff; border: none;
+  padding: 10px; font-size: 14px; font-weight: 600; border-radius: 8px;
+  cursor: pointer;
+}
+.feedback-submit:disabled { opacity: 0.6; cursor: default; }
+.feedback-thanks { text-align: center; padding: 1rem 0; font-size: 14px; color: #111; }
+</style>
+
+<div class="feedback-overlay" id="feedbackOverlay">
+  <div class="feedback-card">
+    <button class="feedback-close" id="feedbackClose" aria-label="Close">&#x2715;</button>
+    <div id="feedbackBody">
+      <p class="feedback-title">How do you feel about this result?</p>
+      <p class="feedback-sub">Your answer helps us improve the calculator.</p>
+      <button class="feedback-option" data-sentiment="eye-opening">&#x1F4A1; Eye-opening, I needed this</button>
+      <button class="feedback-option" data-sentiment="disappointed-helpful">&#x1F615; Disappointed, but helpful</button>
+      <button class="feedback-option" data-sentiment="recheck">&#x1F504; I'll re-check my numbers</button>
+      <button class="feedback-option" data-sentiment="skeptical">&#x26A0;&#xFE0F; I think this is wrong</button>
+      <textarea class="feedback-textarea" id="feedbackComment" placeholder="Anything we got wrong, or want to tell us?"></textarea>
+      <button class="feedback-submit" id="feedbackSubmit">Send feedback</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxe7cWy9JOn56nTKY36HIH0haTeg78jFBfzCtUJF7_VjxpGDZttx5EaDUez_q3DT5EX5w/exec";
+  var DELAY_MS = 7000;
+  var selectedSentiment = null;
+  var overlay = document.getElementById('feedbackOverlay');
+  var closeBtn = document.getElementById('feedbackClose');
+  var submitBtn = document.getElementById('feedbackSubmit');
+  var options = document.querySelectorAll('.feedback-option');
+  var commentBox = document.getElementById('feedbackComment');
+  var feedbackBody = document.getElementById('feedbackBody');
+  var hasShown = false;
+  options.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      options.forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+      selectedSentiment = btn.getAttribute('data-sentiment');
+    });
+  });
+  closeBtn.addEventListener('click', function() { overlay.classList.remove('show'); });
+  submitBtn.addEventListener('click', function() {
+    if (!selectedSentiment) { alert('Please pick an option first.'); return; }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ calculatorType: 'car', result: window.CALC_RESULT || 'unknown', sentiment: selectedSentiment, comment: commentBox.value || '' })
+    }).then(function() {
+      feedbackBody.innerHTML = '<p class="feedback-thanks">Thanks &#8212; that helps us a lot. &#x1F64F;</p>';
+      setTimeout(function() { overlay.classList.remove('show'); }, 1800);
+    }).catch(function() { submitBtn.disabled = false; submitBtn.textContent = 'Send feedback'; });
+  });
+  window.triggerFeedbackPopup = function() {
+    if (hasShown) return;
+    hasShown = true;
+    setTimeout(function() { overlay.classList.add('show'); }, DELAY_MS);
+  };
+})();
+</script>
+<div class="sticky-mobile-cta"><a href="/">🧮 See All Free Calculators →</a></div>
+</body>
+</html>
